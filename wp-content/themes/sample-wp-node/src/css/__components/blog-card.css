@@ -1,0 +1,221 @@
+/* Linear Gradients for different text animation backgrounds */
+
+.text-animate {
+  position: relative;
+  width: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position: 0% 0%;
+  z-index: 10;
+
+  .text-brand-blue {
+    will-change: auto;
+    background-image: linear-gradient(
+      90deg,
+      var(--page-bg) 0%,
+      var(--page-bg) 33%,
+      var(--sample-wp-node-blue) 33%,
+      var(--sample-wp-node-blue) 66%,
+      var(--gray-6) 66%,
+      var(--gray-6) 100%
+    );
+    background-size: 300%;
+  }
+
+  .text-gray-3 {
+    will-change: auto;
+    background-image: linear-gradient(
+      90deg,
+      var(--page-bg) 0%,
+      var(--page-bg) 50%,
+      var(--gray-3) 50%,
+      var(--gray-3) 100%
+    );
+    background-size: 200%;
+  }
+
+  .text-gray-2 {
+    will-change: auto;
+    background-image: linear-gradient(
+      90deg,
+      var(--page-bg) 0%,
+      var(--page-bg) 50%,
+      var(--gray-2) 50%,
+      var(--gray-2) 100%
+    );
+    background-size: 200%;
+  }
+
+  .text-gray-1 {
+    will-change: auto;
+    background-image: linear-gradient(
+      90deg,
+      var(--page-bg) 0%,
+      var(--page-bg) 50%,
+      var(--gray-1) 50%,
+      var(--gray-1) 100%
+    );
+    background-size: 200%;
+  }
+}
+
+.blog-section {
+  @apply px-16px sm:px-40px mb-32px my-44px sm:my-56px md:my-72px mx-auto;
+  max-width: 1800px;
+
+  &-title {
+    @apply fs-6 bold-raleway text-brand-blue my-56px sm:my-64px md:my-88px;
+
+    &-wrapper {
+      @media (min-width: 768px) {
+        max-width: 50%;
+      }
+    }
+  }
+
+  .blog-post-wrapper {
+    @apply flex flex-wrap md:flex-nowrap;
+    column-gap: 72px;
+
+    .blog-post {
+      @apply mb-72px;
+
+      &-title {
+        @apply fs-4 bold-raleway  mb-16px sm:mb-24px h-64px md:h-[86px];
+        max-width: 600px;
+      }
+
+      .img-wrapper {
+        @apply relative h-full w-full;
+        max-height: 150px;
+        height: 100vh !important;
+
+        @media (min-width: 768px) {
+          max-height: 360px;
+        }
+
+        @media (min-width: 1440px) {
+          max-height: 600px;
+        }
+
+        &-overlay {
+          height: 100%;
+          width: 100%;
+          background-color: var(--page-bg);
+          transition: all 1000ms ease;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 20;
+
+          &.active {
+            width: 0;
+          }
+        }
+
+        &-date {
+          @apply py-8px px-20px absolute top-0 right-0 flex flex-col items-center bg-white;
+          -webkit-text-fill-color: initial !important;
+
+          .text-brand-blue {
+            background-image: linear-gradient(
+              90deg,
+              white 0%,
+              white 50%,
+              var(--sample-wp-node-blue) 50%,
+              var(--sample-wp-node-blue) 100%
+            );
+            background-size: 200%;
+          }
+        }
+
+        img {
+          @apply h-full w-full;
+        }
+      }
+
+      &-btn {
+        @apply absolute;
+        transform: translateY(-50%);
+
+        .btn-solid {
+          -webkit-text-fill-color: initial !important;
+          clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+          transition: ease 500ms all;
+
+          &.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          }
+        }
+
+        .btn-solid {
+          -webkit-text-fill-color: initial !important;
+          background-image: none;
+        }
+      }
+
+      &-text {
+        @apply fs-1 regular-work-sans mt-48px sm:mt-56px md:mt-64px;
+
+        max-width: 365px;
+      }
+    }
+  }
+
+  &-bottom-btn {
+    @apply relative text-center;
+
+    .btn-bordered {
+      -webkit-text-fill-color: initial !important;
+      clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+      transition: ease 500ms all;
+      background-image: none;
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+  }
+}
+
+.blog {
+  .blog-section {
+    @apply mt-72px sm:mt-100px md:mt-200px mx-auto;
+  }
+}
+
+/* .blog-post-wrapper div:first-of-type {
+    @apply md:mr-72px;
+  } */
+
+.blog-post-wrapper div:nth-child(3) {
+  @apply md:w-1/2;
+}
+
+/* Animation trigger */
+.active {
+  & > .is-animating-sm {
+    animation: textReveal 800ms forwards;
+  }
+
+  & > .is-animating-md {
+    animation: textReveal 1000ms forwards;
+  }
+
+  & > .is-animating-lg {
+    animation: textReveal 1200ms forwards;
+  }
+}
+
+/* Animations */
+@keyframes textReveal {
+  0% {
+    opacity: 1;
+    background-position: 0% 0%;
+  }
+
+  100% {
+    opacity: 1;
+    background-position: -100% 0;
+  }
+}

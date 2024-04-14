@@ -1,0 +1,24 @@
+{
+  "name": "Sample-WP-Node",
+  "version": "1.0.0",
+  "description": "Sample WP Node Wordpress website",
+  "keywords": "wordpress, lando",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd ./wp-content/themes/sample-wp-node && npm run dev",
+    "dev": "cd ./wp-content/themes/sample-wp-node && npm run dev",
+    "prod": "cd ./wp-content/themes/sample-wp-node && npm run prod",
+    "watch": "cd ./wp-content/themes/sample-wp-node && npm run watch",
+    "install-theme": "cd ./wp-content/themes/sample-wp-node && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hounder-Co/Sample-WP-Node-wp.git"
+  },
+  "author": "Hounder <info@hounder.co>",
+  "bugs": {
+    "url": "https://github.com/Hounder-Co/Sample-WP-Node-wp/issues"
+  },
+  "homepage": "https://github.com/Hounder-Co/Sample-WP-Node-wp#readme"
+}

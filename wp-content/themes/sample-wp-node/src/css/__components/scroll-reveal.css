@@ -1,0 +1,248 @@
+.scroll {
+
+    &-container {
+        @apply w-full h-full relative overflow-hidden;
+        padding-top: 230px;
+        padding-bottom: 140px;
+
+        @media (min-width: 768px) {
+            padding-top: 171px;
+            padding-bottom: 390px;
+        }
+
+        @media (min-width: 1440px) {
+            padding-right: 60px;
+            padding-top: 260px;
+            padding-bottom: 260px;
+            /* max-height: 1080px; */
+        }
+    }
+
+    &-box {
+        @apply w-full h-full relative bg-brand-blue;
+        height: 1670px;
+        max-height: 1670px;
+
+        @media (min-width: 1440px) {
+            max-height: 1680px;
+        }
+
+        &-text {
+            @apply w-full h-full absolute right-44px left-auto;
+            z-index: 20;
+            top: 94px;
+            right: auto;
+            left: 12px;
+            max-width: 420px;
+            max-height: 200px;
+
+            .js-fade-text {
+                opacity: 0;
+                transition: all 500ms ease;
+            }
+
+            @media (min-width: 768px) {
+                left: auto;
+                right: 44px;
+                max-width: 420px;
+                max-height: 200px;
+                
+            }
+    
+            @media (min-width: 1440px) {
+                left: auto;
+                right: 44px;
+                max-width: 600px;
+                max-height: 200px;
+            }
+
+            &-visible {
+                max-height: 192px;
+            }
+
+            &-fadein {
+                max-height: 192px;
+            }
+
+            .js-fixed-text {
+                max-height: 192px;
+                overflow: hidden;
+            }
+        }
+
+        &-descript {
+            @apply w-full h-full absolute;
+            z-index: 99;
+            top: 75%;
+            right: auto;
+            left: 12px;
+            max-width: 420px;
+            min-height: 203px;
+            max-height: 203px;
+
+            .desc-text {
+                @apply w-full h-full text-white;
+                max-width: 365px;
+                max-height: 115px;    
+                overflow: hidden;  
+            }
+
+            @media (max-width: 768px){
+                .desc-text {
+                    margin-bottom: 42px;
+                }
+            }
+
+            @media (min-width: 768px) {
+                top: 68%;
+                right: 42px;
+                left: auto;
+                max-width: 420px;
+
+                .desc-text {
+                    max-width: 420px;    
+                    margin-bottom: 42px;
+                }
+            }
+    
+            @media (min-width: 1440px) {
+                top: 88%;
+                right: 102px;
+                left: auto;
+                max-width: 540px;
+
+                .desc-text {
+                    @apply mb-48px;
+                    max-width: 540px;
+                    max-height: 130px;      
+                }
+            }
+
+        }
+
+        &-left {
+            @apply w-full h-full relative;
+            /* height: 1670px; */
+            height: calc(100% + 555px);
+            z-index: 20;
+
+            @media (min-width: 768px) {
+                @apply w-full;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: calc(100% + 755px);
+            }
+    
+            @media (min-width: 1440px) {
+                @apply w-[57%] relative;
+                height: 1670px;
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+
+        }
+
+        .laptop-overlay {
+            @apply w-full h-full absolute;
+            z-index: 20;
+            bottom: 0px;
+            left: auto;
+            right: auto;
+            max-width: 1309px;
+            max-height: 755px;
+            height: 755px;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: contain;
+
+
+            @media (min-width: 768px) {
+                bottom: 0px;
+                left: 0px;
+                right: auto;
+            }
+    
+            @media (min-width: 1440px) {
+                bottom: -230px;
+                left: 0px;
+                background-position: center;
+            }
+
+            @media (min-width: 1920px) {
+                bottom: -230px;
+                left: 200px;
+                max-width: 1500px;
+            }
+        }
+
+        &-overlay {
+            @apply w-full h-full absolute top-0 left-0;
+            z-index:1;
+            object-fit: cover;
+        }
+
+        &-fallback {
+            @apply w-full h-full absolute top-0 left-0;
+            z-index:0;
+            object-fit: cover;
+        }
+    }
+
+    &-top-text {
+        @apply absolute top-0 w-full h-full;
+        max-width: 360px;
+        max-height: 250px;
+        right: auto;
+        left: 16px;
+        z-index: 99;
+
+        @media (min-width: 768px) {
+            left: auto;
+            right: 43px;
+            max-width: 420px;
+        }
+
+        @media (min-width: 1440px) {
+            max-width: 600px;
+            left: auto;
+            right: 105px;
+        }
+
+        &::before {
+            @apply w-full h-full absolute right-0 left-auto;
+            content: "";
+            top: 65px;
+            max-width: 350px;
+            max-height: 235px;
+            background-image: url("../assets/scroll_box_noodles.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            @media (min-width: 768px) {
+                @apply top-0 left-0 right-auto;
+                max-width: 350px;
+                max-height: 254px;
+                height: 254px;
+                left: -370px;
+            }
+    
+            @media (min-width: 1440px) {
+                @apply top-0 left-0 right-auto;
+                max-width: 472px;
+                max-height: 420px;
+                height: 420px;
+                left: -525px;
+            }
+        }
+    }
+
+    &-button {
+        @apply relative;
+        z-index: 99;
+    }
+}

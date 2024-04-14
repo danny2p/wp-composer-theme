@@ -1,0 +1,60 @@
+.parallel-section {
+  @apply px-16px my-64px sm:my-88px md:my-120px  flex flex-wrap justify-around md:mx-auto md:flex-nowrap;
+  max-width: 1800px;
+
+  &-text-wrapper {
+    @apply mb-44px mx-16px sm:mb-56px flex flex-col self-center sm:mx-auto;
+    max-width: 600px;
+  }
+
+  &-text-subtitle {
+    @apply fs-2 semibold-work-sans text-gray-3 text-animate is-animating-sm;
+    letter-spacing: 5px;
+  }
+
+  &-image-wrapper {
+    @apply sm:mx-40px flex md:mx-0 md:justify-end;
+    max-width: 1000px;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: all 600ms ease;
+    min-height: 320px;
+
+    @media (min-width: 768px) {
+      min-height: 800px;
+    }
+
+    @media (min-width: 1440px) {
+      min-height: 1050px;
+    }
+
+    img {
+      object-fit: cover !important;
+      height: 100%;
+      width: 100%;
+    }
+
+    &.active {
+      clip-path: polygon(100% 0, -20% 0, -20% 120%, 100% 120%);
+    }
+
+    .parallel-image-one,
+    .parallel-image-two {
+      @apply w-1/2;
+      height: 90%;
+    }
+
+    .parallel-image-one {
+      @apply self-start;
+    }
+
+    .parallel-image-two {
+      @apply self-end;
+      img {
+      }
+    }
+  }
+
+  .done-animating p {
+    -webkit-text-fill-color: initial !important;
+  }
+}

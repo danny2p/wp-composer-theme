@@ -1,0 +1,351 @@
+.horizontal {
+    &-card {
+
+        &-section {
+            @apply w-full h-full pt-88px pb-88px px-12px;
+
+            @media(min-width: 768px){
+                @apply px-56px;
+            }
+
+            &-title {
+                @apply w-fit mb-56px mx-auto;
+                letter-spacing: 5px;
+                transition: clip-path 500ms ease;
+                clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+            
+                &.active {
+                  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+                }
+            }
+
+            &.inline-horizontal-cards { 
+                .horizontal-card-container {
+                    @apply !flex-row !justify-start !items-start; 
+
+                    @media(max-width: 1199px) {
+                        @apply !flex-wrap;
+                    }
+
+                    .horizontal-card-block {
+                        @apply !justify-start;
+
+                        @media(min-width: 767px) {
+                            @apply max-w-[49%];
+                        }
+
+                        @media(min-width: 1200px) {
+                            @apply max-w-[100%];
+                        }
+                    }
+                }
+            }
+        }
+
+        &-container {
+            @apply w-full h-full mx-auto flex flex-col justify-center items-center;
+            column-gap: 12px;
+            row-gap: 16px;
+            max-width: 1800px;
+
+            @media(min-width: 768px){
+                
+            }
+            @media(min-width: 1440px){
+                @apply flex-row;
+            }
+
+            &.wrapped-cards {
+                @apply flex-wrap;
+
+                @media(min-width: 1200px) {
+                    @apply flex-row;
+
+                    .horizontal-card-block {
+                        @apply max-w-[49%];
+                    }
+                }
+            }
+        }
+
+        &-block {
+            @apply w-full h-full flex relative py-12px pr-8px justify-center items-center;
+            max-width: 894px;
+            /* background-image: url("../assets/master-square-pattern.svg");
+            background-repeat: repeat;
+            background-position: center;
+            background-size: auto;
+            background-color: transparent; */
+
+            @media(min-width: 768px){
+                @apply px-12px;
+                height: 208px;
+            }
+
+            /* Bordered corners */
+            .btn-top-left,
+            .btn-top-right,
+            .btn-bottom-left,
+            .btn-bottom-right {
+                @apply absolute;
+                transition: all 500ms ease;
+                display: block;
+                height: 100%;
+                width: 100%;
+
+                &::before,
+                &::after {
+                    content: '';
+                    background-color: var(--sample-wp-node-blue);
+                    position: absolute;
+                    transition: all 500ms ease;
+                }
+                &:before {
+                    width: 16px;
+                    height: 1px;
+                }
+                &:after {
+                    width: 1px;
+                    height: 16px;
+                }
+
+            }
+
+            .btn-top-left {
+                top: 0;
+                left: 0;
+
+                &:before,
+                &:after {
+                    transform: rotate(0deg);
+                }
+
+            }
+
+            .btn-top-right {
+                top: 0;
+                right: 0;
+
+                &:before,
+                &:after {
+                    transform: rotate(0deg);
+                    right: 0;
+                }
+
+            }
+
+            .btn-bottom-left {
+                bottom: 0px;
+                left: 0;
+
+                &:before,
+                &:after {
+                    transform: rotate(0deg);
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
+            .btn-bottom-right {
+                bottom: 0px;
+                right: 0;
+
+                &:before,
+                &:after {
+                    transform: rotate(0deg);
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+
+            .card-corner {
+                opacity: 0;
+                transition: all 500ms ease;
+          
+          
+                &.btn-top-right {
+                    right: calc(100% - 60px);
+    
+                    &.active {
+                        animation: fadeBlink 500ms forwards,cornerShift 500ms ease 0.5s forwards;
+                    }
+                }
+                &.btn-bottom-right {
+                    right: calc(100% - 60px);
+    
+                    &.active {
+                        animation: fadeBlink 500ms forwards,cornerShift 500ms ease 0.5s forwards;
+                    }
+                }
+          
+                &.active {
+                    animation: fadeBlink 500ms forwards;
+                }
+              }
+
+            
+            &-left {
+                @apply w-full h-full flex flex-col mr-4px;
+                max-width: 387px;
+                transition: clip-path 500ms ease;
+                transition-delay: 700ms;
+                clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+            
+                &.active {
+                  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+                }
+                
+                @media(min-width: 768px){
+                    @apply mr-20px;
+                    row-gap: 24px;
+
+                }
+
+                .block-title {
+                    @apply ml-12px pt-12px;
+                    font-family: 'Chakra Petch', sans-serif;
+                    max-height: 105px;
+                    min-height: 105px;
+                    overflow: hidden;
+
+                    @media(max-width: 768px){
+                        @apply text-0 !important;
+                    }
+
+                    @media(min-width: 768px){
+                        max-height: 105px;
+                        min-height: 105px;   
+                    }
+
+                    @media(min-width: 1440px){
+                        @apply mb-12px;
+                        max-height: 125px;
+                        min-height: 125px;
+                    }
+                }
+
+                .block-button {
+                    max-width: 141px;
+                    /* padding-top: 0px !important; */
+                    padding-right: 0px !important;
+
+                    @media(max-width: 280px){
+                        //max-width: 140px;
+                        font-size: 10px;
+                    }
+
+                    @media(min-width: 768px){
+                        //max-width: 140px;
+                    }
+
+                    &:focus,
+                    &:hover {
+                        @apply border-none !important;
+                        box-shadow: none;
+                        text-decoration: var(--sample-wp-node-orange) underline;
+                        /* border-bottom: 1px solid var(--sample-wp-node-orange) !important; */
+                    }
+            
+                    .btn-text {
+                        &::after {
+                            background-color: var(--sample-wp-node-orange) !important;
+                            color: var(--sample-wp-node-orange) !important;
+                            margin-left: 8px;
+                        }
+                    }
+                }
+            }
+            
+            &-right {
+                @apply w-full h-auto flex justify-center items-center;
+                /* max-width: 481px; */
+                transition: clip-path 500ms ease;
+                transition-delay: 700ms;
+                clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+            
+                &.active {
+                  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+                }
+
+                .block-asset {
+                    width: 100%;
+                    /* max-width: 436px; */
+                    height: auto;
+                    max-height: 191px;
+                    object-fit: cover;
+                }
+            }
+
+            .h-card {
+
+                &-link {
+                    @apply w-full h-full absolute top-0 left-0;
+                    z-index: 40;
+    
+                }
+
+                &-background {
+                    @apply h-full absolute;
+                    width: 98%;
+                    max-height: 142px;
+                    /* max-width: 449px; */
+                    top: 8px;
+                    left: 10px;
+                    z-index: 0;
+                    background-image: url("../assets/master-square-pattern.svg");
+                    background-repeat: repeat;
+                    background-position: center;
+                    background-size: auto;
+                    background-color: transparent;
+                    transition: clip-path 500ms ease;
+                    transition-delay: 700ms;
+                    clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+
+                    @media(min-width: 768px){
+                        max-height: 193px;
+                        /* max-width: 879px; */
+                    }
+
+                    @media(max-width: 376px){
+                        width: 96%;
+                    }
+            
+                    &.active {
+                      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes cornerShift {
+    0% {
+      right: 93%;
+    }
+    100% {
+      right: 0%;
+    }
+}
+
+@keyframes fadeBlink {
+0%{
+    opacity: 0;
+}
+20%{
+    opacity: 0.33;
+}
+40%{
+    opacity: 0;
+}
+60%{
+    opacity: 0.66;
+}
+80%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+}

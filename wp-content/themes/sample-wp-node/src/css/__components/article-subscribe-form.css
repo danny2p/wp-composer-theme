@@ -1,0 +1,244 @@
+.subscribe-form {
+  &-section {
+    @apply pb-52px pt-24px relative mx-auto h-full w-full overflow-hidden;
+
+    @media (min-width: 768px) {
+      @apply px-40px;
+    }
+  }
+
+  &-title {
+    @apply pt-24px relative;
+    letter-spacing: 5px;
+    z-index: 99;
+    width: fit-content;
+    max-width: 500px;
+    padding-left: 22px;
+    padding-right: 22px;
+
+    @media (min-width: 768px) {
+      @apply mx-auto;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  &-box {
+    @apply bg-gray-8 relative mx-auto h-full w-full;
+    z-index: 20;
+    max-width: 750px;
+    min-height: 265px;
+
+    @media (min-width: 768px) {
+      @apply px-120px;
+    }
+
+    .marketo-form-load {
+      @apply mx-auto !important;
+      top: 0 !important;
+      z-index: 20;
+      min-height: 0 !important;
+      background-color: transparent !important;
+
+      .mktoForm {
+        @apply pt-24px pb-88px px-16px;
+
+        @media (min-width: 768px) {
+          @apply px-0;
+        }
+
+        .mktoFieldWrap {
+          background-color: transparent !important;
+
+          .mktoHtmlText {
+            @apply mt-24px;
+            padding-left: 20px;
+          }
+
+          .mktoCheckboxList {
+            width: 36px !important;
+          }
+        }
+
+        .mktoFormRow {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          order: 2;
+
+          .mktoFieldDescriptor {
+            width: 100% !important;
+
+            &.hasCheckboxList {
+              @apply mt-24px;
+              width: auto !important;
+
+              .mktoFieldWrap .mktoGutter {
+                display: none;
+              }
+            }
+          }
+
+          &:last-child {
+            order: 1;
+          }
+        }
+
+        .mktoButtonRow {
+          @apply mt-24px h-full !important;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          .mktoButtonWrap {
+            .mktoButton {
+              font-size: 16px !important;
+              position: relative;
+              display: inline-block;
+              margin: 0px auto;
+              padding: 12px 20px;
+              bottom: auto;
+              left: auto;
+              right: auto;
+              top: auto;
+              transform: translateX(0%);
+            }
+          }
+        }
+      }
+
+      /* #LblSubscribe_to_Newsletters__c {
+        display: none;
+        width: 0;
+        height: 0;
+      } */
+
+      #Subscribe_to_Newsletters__c {
+        max-width: 32px;
+        margin-top: 0;
+
+        &[type="checkbox"] {
+          cursor: pointer;
+          /* Add if not using autoprefixer */
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: var(--white);
+          margin: 0;
+
+          font-size: 24px;
+          color: currentColor;
+          width: 24px;
+          height: 24px;
+          border: 1px solid var(--gray-4);
+          border-radius: 0;
+          /* transform: translateY(-0.075em); */
+
+          display: grid;
+          place-content: center;
+
+          &::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            clip-path: polygon(
+              14% 44%,
+              0 65%,
+              50% 100%,
+              100% 16%,
+              80% 0%,
+              43% 62%
+            );
+            transform-origin: bottom left;
+            transition: 120ms opacity ease;
+            box-shadow: inset 1em 1em var(--sample-wp-node-blue);
+            /* Windows High Contrast Mode */
+            background-color: CanvasText;
+            opacity: 0;
+          }
+
+          &:checked::before {
+            opacity: 1;
+          }
+
+          &:focus {
+            /* outline: max(2px, 0.15em) solid currentColor; */
+            /* outline-offset: max(2px, 0.15em); */
+          }
+
+          &:disabled {
+            color: var(--gray-4);
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      .mktoHasWidth {
+        width: 100% !important;
+      }
+    }
+
+    &::before {
+      @apply bg-gray-8 absolute h-full w-full;
+      content: "";
+      mask-image: url("../assets/subcribe_box_noodles.svg");
+      mask-repeat: no-repeat;
+      mask-position: top;
+      mask-size: auto;
+      max-width: 262px;
+      max-height: 185px;
+      z-index: 10;
+      top: -23px;
+      left: -17px;
+    }
+
+    &::after {
+      @apply bg-gray-8 absolute h-full w-full;
+      content: "";
+      mask-image: url("../assets/subcribe_box_noodles.svg");
+      mask-repeat: no-repeat;
+      mask-position: bottom;
+      mask-size: auto;
+      max-width: 262px;
+      max-height: 185px;
+      z-index: 10;
+      bottom: -23px;
+      right: 0;
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .subscribe-form {
+    &-title {
+      @apply text-brand-blue font-chakra !important;
+    }
+
+    &-box {
+      .marketo-form-load {
+        .mktoButtonRow {
+          .mktoButtonWrap {
+            .mktoButton {
+              @apply medium-work-sans text-brand-orange;
+              /* width: 60%; */
+              background-color: transparent !important;
+              border: 1px solid var(--sample-wp-node-orange) !important;
+              box-sizing: border-box;
+              box-shadow: inset 0px 0px 0px 0px !important;
+              transition: all 250ms ease;
+
+              &:focus,
+              &:hover {
+                box-shadow: inset 0 0 0 1px !important;
+              }
+
+              &:after,
+              &:before {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+.info-card {
+  @apply sm:px-40px mb-200px flex flex-col md:flex-row;
+  max-width: 1800px;
+  margin: auto;
+
+  @media (min-width: 1440px) {
+    max-height: 580px;
+  }
+
+  &-button {
+    @apply absolute;
+    bottom: 16px;
+
+    @media (min-width: 1440px) {
+      bottom: -22px;
+      top: auto;
+    }
+
+    &-wrapper {
+      @apply mx-auto w-full;
+
+      @media (min-width: 768px) {
+        max-width: 600px;
+      }
+    }
+  }
+
+  &-top-title {
+    max-width: 600px;
+    letter-spacing: 5px;
+    font-weight: 600;
+  }
+
+  &-quotes {
+    max-width: 87px !important;
+  }
+
+  &-name {
+    max-width: 400px;
+  }
+
+  &-byline {
+    max-width: 400px;
+  }
+
+  &-text {
+    @apply bg-brand-blue px-16px pt-48px pb-120px md:pb-160px md:pt-88px sm:px-72px md:px-140px relative flex flex-col md:w-1/2;
+    height: 450px;
+    color: var(--white);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 105%);
+    transition: ease 600ms all;
+
+    @media (min-width: 1440px) {
+      min-height: 580px;
+    }
+
+    &.active {
+      clip-path: polygon(0 0, 100% 0, 100% 120%, 0% 105%);
+    }
+
+    .text-wrapper {
+      @apply relative mx-auto self-center;
+
+      .info-card-supertitle {
+        @apply absolute hidden md:block;
+        right: 25px;
+        top: -75px;
+        color: var(--data-viz-gold);
+        border: 1px solid var(--data-viz-gold);
+        border-radius: 16px;
+        padding: 8px 16px;
+      }
+
+      .info-card-description {
+        @apply fs-3 bold-raleway;
+        max-width: 600px;
+        margin: auto;
+        max-height: 166px;
+        overflow: hidden;
+      }
+    }
+
+    .flickity-button {
+      border-radius: 0;
+      background-color: var(--sample-wp-node-orange);
+      bottom: 32px;
+      transform: none;
+
+      &.flickity-prev-next-button {
+        top: auto;
+
+        @media (min-width: 1440px) {
+          height: 72px;
+          width: 72px;
+          bottom: -37px;
+        }
+      }
+
+      &.next {
+        right: 40%;
+
+        @media (min-width: 768px) {
+          right: 45%;
+        }
+
+        @media (min-width: 1440px) {
+          right: 40%;
+        }
+      }
+
+      &.previous {
+        left: 40%;
+
+        @media (min-width: 768px) {
+          left: 45%;
+        }
+
+        @media (min-width: 1440px) {
+          left: 40%;
+        }
+      }
+
+      &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        inset: 0 0 0 0;
+        background: var(--data-viz-blue-2);
+        z-index: 1;
+        transition: transform 500ms ease;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+
+      &.next:focus::before,
+      &.next:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom right;
+        border-radius: 0px 0px 16px 0px;
+      }
+
+      &.previous:focus::before,
+      &.previous:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+        border-radius: 0px 0px 0px 16px;
+      }
+
+      .flickity-button-icon {
+        z-index: 10;
+      }
+    }
+  }
+
+  &-asset {
+    @apply md:w-1/2;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: ease 600ms all;
+
+    &.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .img-wrapper {
+      height: 100%;
+      clip-path: url("#aboutCardMask");
+      max-height: 345px;
+
+      @media (min-width: 768px) {
+        max-height: 485px;
+      }
+
+      @media (min-width: 1440px) {
+        max-height: 580px;
+      }
+
+      .carousel-cell {
+        height: 100%;
+        width: 100%;
+      }
+
+      img {
+        min-height: 350px;
+        height: 100%;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .flickity-viewport {
+          max-height: 350px;
+        }
+      }
+
+      @media (min-width: 1440px) {
+        .flickity-viewport {
+          height: 100% !important;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

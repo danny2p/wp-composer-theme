@@ -1,0 +1,331 @@
+.rbanner {
+
+    &-section {
+        @apply w-full h-full flex justify-center align-top relative px-16px mx-auto flex-col mt-20px sm:mt-24px md:mt-88px;
+        column-gap: 15px;
+        row-gap: 53px;
+        max-width: 1800px;
+
+        @media(min-width:768px){
+            @apply px-40px;
+        }
+
+        @media(min-width: 1440px){
+            @apply flex-row px-52px;
+        }
+
+        @media(min-width: 1920px){
+            @apply px-0;
+        }
+
+        &.is-loading {
+            .rbanner-card-main-title {
+                opacity: 0;
+                transition: ease 500ms all 500ms;
+            }
+            .rbanner-card-main-descript {
+                transition: ease 1000ms all;
+                transition-delay: 700ms;
+                clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+            }
+
+            .rbanner-card-alert {
+                transition: ease 1000ms all;
+                transition-delay: 700ms;
+                clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+            }
+
+            .rbanner-asset {
+                /* transition: ease 1000ms all;
+                clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); */
+                transition: ease 1000ms all;
+                transition-delay: 700ms;
+                clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+            }
+
+            .banner-corner {
+                opacity: 0;
+                transition: all 500ms ease;
+          
+                &.btn-top-right {
+                  right: 90%;
+          
+                }
+                &.btn-bottom-right {
+                  right: 90%;
+          
+                }
+            }
+        }
+        &.is-loaded {
+            .rbanner-card-main-title {
+                opacity: 1;
+            }
+            .rbanner-card-main-descript {
+                clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+            }
+
+            .rbanner-card-alert {
+                clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+            }
+
+            .rbanner-asset {
+                /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important; */
+                clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+            }
+
+            .banner-corner {
+                /* opacity: 1; */
+                animation: fadeBlink 500ms forwards;
+          
+                &.btn-top-right {
+                    animation: fadeBlink 500ms forwards,cornerShift 500ms ease 0.8s forwards;
+                }
+                &.btn-bottom-right {
+                    animation: fadeBlink 500ms forwards,cornerShift 500ms ease 0.8s forwards;
+                }
+            }
+        }
+    }
+
+    &-cards-container {
+        @apply w-full h-full flex flex-col relative mt-8px mx-auto;
+        transition: ease 1000ms all;
+        row-gap: 25px;
+        max-width: 990px;
+
+        @media(min-width: 1440px){
+            max-width: 795px;
+        }
+    }
+
+    &-card {
+
+        &-main {
+            @apply w-full h-full flex flex-col justify-center text-left relative;
+            max-height: 400px;
+            border-left: 1px solid var(--sample-wp-node-blue);
+            background-image: url("../assets/master-square-pattern.svg");
+            background-repeat: repeat;
+            background-position: center;
+            background-size: auto;
+            background-color: transparent;
+            animation: fadeinBox 500ms ease 0.5s forwards;
+
+            &-title {
+                @apply pt-100px ml-36px mr-36px;
+                max-width: 640px;
+
+                @media(min-width: 1440px){
+                    @apply mr-100px;
+                }
+            }
+            &-descript {
+                @apply pb-88px pt-32px ml-36px mr-36px;
+                max-width: 640px;
+
+                @media(min-width: 1440px){
+                    @apply mr-100px;
+                }
+            }
+        }
+        
+        &-alert {
+            @apply w-full h-full flex justify-center items-center relative;
+            max-width: 315px;
+            /* height: 60px; */
+
+            .alert-section {
+                @apply w-full flex justify-center items-center absolute left-0;
+                height: 100%;
+                max-width: 45px;
+                border-left: 1px solid var(--data-viz-red);
+                background-image: url("../assets/alert_star.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: auto;
+                background-color: transparent;
+            }
+
+            .alert-text {
+                margin-left: 45px;
+            }
+        }
+    }
+
+    &-asset {   
+        @apply w-full h-full object-cover;
+        max-height: 400px;
+        transition: ease 1000ms all;
+
+        &-container {
+            @apply w-full relative px-8px py-8px mx-auto;
+            /* height: 100%; */
+            height: auto;
+            max-height: 418px;
+            max-width: 990px;
+
+
+           /* Bordered corners */
+           .btn-top-left,
+           .btn-top-right,
+           .btn-bottom-left,
+           .btn-bottom-right {
+           @apply absolute;
+           transition: all 500ms ease;
+           display: block;
+           height: 100%;
+           width: 100%;
+
+           &::before,
+           &::after {
+               content: '';
+               background-color: var(--sample-wp-node-blue);
+               position: absolute;
+               transition: all 500ms ease;
+           }
+           &:before {
+               width: 16px;
+               height: 1px;
+           }
+           &:after {
+               width: 1px;
+               height: 16px;
+           }
+
+           }
+
+           .btn-top-left {
+           top: 0;
+           left: 0;
+
+           &:before,
+           &:after {
+               transform: rotate(0deg);
+           }
+
+           }
+
+           .btn-top-right {
+           top: 0;
+           right: 0;
+
+           &:before,
+           &:after {
+               transform: rotate(0deg);
+               right: 0;
+           }
+
+           }
+
+           .btn-bottom-left {
+           bottom: 0px;
+           left: 0;
+
+           &:before,
+           &:after {
+               transform: rotate(0deg);
+               left: 0;
+               bottom: 0;
+           }
+           }
+
+           .btn-bottom-right {
+           bottom: 0px;
+           right: 0;
+
+           &:before,
+           &:after {
+               transform: rotate(0deg);
+               right: 0;
+               bottom: 0;
+           }
+           }
+        }
+    }
+}
+
+
+/* Set Banner Background Image but on the body */
+.risk-body {
+    /* background-image: url("../assets/risk-dark-banner-bg.png"); */
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto;
+    background-color: transparent;
+}
+
+/* Typewriter animation class */
+#typewriter{
+
+    &:after{
+        content: "\25AE";
+        font-size: 36px;
+
+        @media(min-width: 768px){
+            font-size: 44px;
+        }
+        @media(min-width: 1440px){
+            font-size: 64px;
+        }
+        
+        color: var(--sample-wp-node-blue);
+        /* animation: blink 500ms linear forward alternate; */
+        animation: blink 500ms linear infinite alternate;
+    }
+}
+
+@keyframes blink{
+0%{opacity: 0;}
+100%{opacity: 1;}
+}
+
+@keyframes fadeinBox{
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 0.33;
+    }
+    40%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 0.66;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes cornerShift {
+    0% {
+      right: 90%;
+    }
+    100% {
+      right: 0%;
+    }
+  }
+
+@keyframes fadeBlink {
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 0.33;
+    }
+    40%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 0.66;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

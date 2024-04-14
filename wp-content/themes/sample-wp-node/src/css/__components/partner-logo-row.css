@@ -1,0 +1,87 @@
+.partner-logo-rows {
+
+  &-section { 
+    @apply w-full h-full px-16px py-24px;
+  }
+
+  &-title {
+    @apply w-fit h-auto mx-auto max-w-[600px];
+    text-align: center;
+  }
+
+  &-image {
+    @apply w-full h-auto block object-contain;
+    max-height: 175px;
+    max-width: 160px;
+    /* max-width: 125px; */
+  
+    &-container {
+      @apply w-full h-full flex flex-wrap justify-center items-center gap-x-[35px] gap-y-[32px] max-w-[1800px] mx-auto my-[48px]; 
+
+      /* 4-column grid when the window size is between 768px and 1200px */
+      @media (max-width: 1199px) {
+        @apply grid;
+      }
+
+      /* 2-column grid when the window size is 767px or below */
+      @media (max-width: 767px) {
+        /* @apply gap-y-[32px]; */
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* 4-column grid when the window size is between 768px and 1200px */
+      @media (min-width: 768px) and (max-width: 1199px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &-block {
+      @apply flex justify-center items-center w-auto h-[100px]; 
+      filter: grayscale(100%);
+      transition: all 100ms ease;
+  
+      &:focus,
+      &:hover {
+          filter: grayscale(0%) !important;
+      }
+
+      @media(min-width: 767px){
+        @apply w-full;
+      }
+      @media(min-width: 1200px){
+        @apply w-full h-[100px];
+        max-width: calc((100% - 245px) / 6);
+      }
+      @media(min-width: 1440px){
+        /* @apply h-[175px]; */
+      }
+
+      @media(max-width: 1199px){
+        @apply mx-auto;
+      }
+    }
+
+    /* @media(min-width: 767px){
+      max-width: 95px;
+    } */
+  }
+
+  &-logo {
+  }
+
+  &-link {
+    @apply w-auto h-auto block relative z-20;
+    cursor: pointer;
+    /* filter: grayscale(100%);
+    transition: all 100ms ease;
+
+    &:focus,
+    &:hover {
+        filter: grayscale(0%) !important;
+    } */
+  }
+
+  &-button {
+    @apply w-fit h-auto mx-auto; 
+  }
+}

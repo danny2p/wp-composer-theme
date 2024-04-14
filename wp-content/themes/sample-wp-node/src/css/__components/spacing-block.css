@@ -1,0 +1,31 @@
+.spacing-block-section {
+  @apply w-full h-0;
+
+  &.xsmall {
+    @apply h-[12px] md:h-[24px];
+  }
+
+  &.small {
+    @apply h-12px sm:h-[24px] md:h-[48px];
+  }
+
+  &.medium {
+    @apply h-[24px] sm:h-[48px] md:h-[96px];
+  }
+
+  &.large {
+    @apply h-[48px] sm:h-[96px] md:h-[192px];
+
+    @media(min-width: 1920px) {
+      @apply h-0;
+    }
+  }
+
+  &.xlarge {
+    @apply h-[96px] sm:h-[192px] md:h-[342px];
+
+    @media(min-width: 1920px) {
+      @apply h-0;
+    }
+  }
+}

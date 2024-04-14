@@ -1,0 +1,109 @@
+.card {
+  &-section-wrapper {
+    @apply mx-16px sm:mx-32px sm:my-140px md:my-120px my-88px relative flex flex-wrap justify-center;
+    padding-top: 50px;
+
+    .card-section-top-title {
+      @apply absolute top-0 h-full w-full text-center;
+      max-width: 600px;
+      max-height: 28px;
+      overflow: hidden;
+      letter-spacing: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: ease 500ms all;
+      clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 105%, 0% 105%);
+      }
+    }
+  }
+
+  &-wrapper {
+    @apply mb-44px relative w-full;
+    height: 232px;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &-text {
+    @apply px-16px sm:px-32px bottom-32px absolute;
+    -webkit-text-fill-color: initial !important;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: ease 500ms all;
+
+    &.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    &:first-child {
+      @apply mb-12px;
+    }
+  }
+
+  &-title {
+    font-family: "Work Sans", sans-serif;
+    letter-spacing: 3px;
+    max-height: 36px;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      max-height: 40px;
+    }
+  }
+
+  &-subtitle {
+    /* @apply w-4/5 sm:w-full; */
+    font-family: "Raleway", sans-serif;
+    max-height: 111px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: 768px) {
+      max-height: 82px;
+    }
+    @media (min-width: 1440px) {
+      max-height: 94px;
+    }
+  }
+
+  &-btn {
+    @apply pl-16px sm:pl-32px absolute bottom-0;
+    transform: translateY(50%) !important;
+    -webkit-text-fill-color: initial !important;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: ease 500ms all;
+
+    &.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card-section-wrapper div:first-child {
+    max-width: none;
+    width: 100% !important;
+  }
+
+  .card-wrapper {
+    max-width: 50%;
+  }
+}
+
+@media(min-width: 1200px) {
+  .card-wrapper {
+    width: clamp(30%, 100%, 33.3%) !important;
+  }
+}
+
+@media (min-width: 1441px) {
+  .card-wrapper {
+    max-width: 600px;
+    height: 264px;
+  }
+}

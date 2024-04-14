@@ -1,0 +1,309 @@
+/* Linear Gradients for different text animation backgrounds */
+.text-animate {
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  background-position: 0% 0%;
+  z-index: 10;
+
+  .text-brand-blue {
+    background-image: linear-gradient(
+      90deg,
+      white 0%,
+      white 25%,
+      var(--sample-wp-node-blue) 25%,
+      var(--sample-wp-node-blue) 50%,
+      var(--data-viz-blue-3) 50%,
+      var(--data-viz-blue-3) 75%,
+      var(--gray-6) 75%,
+      var(--gray-6) 100%
+    );
+    background-size: 400%;
+
+    p {
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .text-gray-3 {
+    background-image: linear-gradient(
+      90deg,
+      white 0%,
+      white 50%,
+      var(--gray-3) 50%,
+      var(--gray-3) 100%
+    );
+    background-size: 200%;
+
+    p {
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .text-gray-2 {
+    background-image: linear-gradient(
+      90deg,
+      white 0%,
+      white 50%,
+      var(--gray-2) 50%,
+      var(--gray-2) 100%
+    );
+    background-size: 200%;
+
+    p {
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.layered-asset {
+  @apply mx-auto flex flex-col;
+  overflow: hidden !important;
+  max-width: 1800px;
+  margin: 0 auto;
+
+  @media(max-width: 1440px){
+    @apply pt-64px
+  }
+
+  &-text-wrapper {
+    @apply px-16px sm:px-32px md:pl-64px md:mr-140px mb-40px sm:mb-72px;
+    /* mx-auto */
+    max-width: 800px;
+
+    ul {
+      @apply my-16px ml-16px list-disc;
+
+      li {
+        @apply mb-8px;
+      }
+    }
+  }
+
+  &-btn {
+    @apply mt-56px mb-64px relative;
+
+    .btn-solid {
+      -webkit-text-fill-color: initial !important;
+      clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+      transition: ease 600ms all;
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+  }
+
+  &-image-wrapper {
+    @apply sm:pl-52px pb-52px relative w-full md:pl-0;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: ease 600ms all;
+    max-width: 1500px;
+
+    &.active {
+      clip-path: polygon(100% -20%, -20% 0, -20% 120%, 100% 120%);
+    }
+  }
+
+  &-image-background {
+    @apply sm:pl-100px relative md:pl-0;
+    object-fit: cover;
+    height: 100%;
+
+    img {
+      height: 100%;
+
+      @media (max-width: 1760px) {
+        object-fit: contain !important;
+      }
+
+      @media (max-width: 768px) {
+        height: auto !important;
+      }
+    }
+
+    &.noodles:after {
+      content: "";
+      -webkit-mask-image: url("../assets/s-pattern-bottom.svg");
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      z-index: 10;
+      background-color: var(--white);
+      bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+      img:first-child {
+        min-height: 500px;
+        width: 100%;
+      }
+    }
+  }
+
+  &-image-overlay-left {
+    @apply ml-16px sm:ml-40px absolute bottom-0 left-0 z-10;
+    /* max-width: 300px;
+    max-height: 300px; */
+    left: 0px;
+
+    @media (max-width: 768px) {
+      img {
+        width: 50% !important;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      left: -15%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 300px !important;
+      max-height: 300px !important;
+      object-fit: contain !important;
+    }
+  }
+
+  &-image-overlay-right {
+    @apply ml-16px sm:ml-40px sm:-bottom-32px absolute top-0 right-0 z-10;
+    max-width: 300px;
+    max-height: 300px;
+    top: -10%;
+
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: flex-end;
+
+      img {
+        width: 50% !important;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .btn-solid {
+    -webkit-text-fill-color: initial !important;
+  }
+
+  /* Video Option CSS */
+  &-video {
+    @apply h-full w-full object-cover;
+
+    &-clipath {
+      @apply h-full w-full;
+      z-index: 99;
+      transition: ease 600ms all;
+      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+
+      &.active {
+        clip-path: polygon(100% -20%, -20% 0, -20% 120%, 100% 120%);
+      }
+    }
+
+    &-wrapper {
+      @apply relative h-full w-full;
+      height: 422px;
+      min-width: 50%;
+      max-width: 100%;
+
+      @media (min-width: 768px) {
+        /* height: 642px; */
+        max-width: 80%;
+      }
+      @media (min-width: 1440px) {
+        max-width: 1146px;
+        height: 642px;
+        max-width: 59%;
+      }
+
+      @media (min-width: 1921px) {
+        max-width: 1466px;
+        height: 822px;
+      }
+
+      .plyr {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .plyr.plyr--stopped .plyr__controls {
+        display: none;
+      }
+      .plyr--full-ui.plyr--video .plyr__control--overlaid {
+        display: block;
+        background-color: var(--gray-1) !important;
+        padding: 26px !important;
+        /* background: var(--plyr-video-control-background-hover,var(--plyr-color-main,var(--plyr-color-main,#00b2ff))); */
+      }
+      .plyr__control svg {
+        fill: currentColor;
+        display: block;
+        height: 18px;
+        height: var(--plyr-control-icon-size, 60px);
+        pointer-events: none;
+        width: 18px;
+        width: var(--plyr-control-icon-size, 49px);
+      }
+
+      .plyr__control--overlaid svg {
+        left: 4px;
+        position: relative;
+      }
+
+      .plyr--vimeo {
+
+        .plyr__video-embed__container{
+            transform: none !important;
+            padding: 0px !important;
+            height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  & > .is-animating-sm {
+    animation: textReveal 800ms forwards;
+  }
+
+  & > .is-animating-md {
+    animation: textReveal 1200ms forwards;
+  }
+
+  & > .is-animating-lg {
+    animation: textReveal 1200ms forwards;
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+
+  100% {
+    opacity: 1;
+    background-position: -100% 0;
+  }
+}
+
+.left-right-text-wrapper {
+  @apply pl-48px !important;
+}

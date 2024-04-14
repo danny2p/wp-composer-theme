@@ -1,0 +1,39 @@
+.single-risk-center {
+
+  .article-card-link {
+    @apply font-chakra fs-0 !important;
+  }
+  
+  .article-text-section {
+    @apply font-chakra;
+
+    h1, h2, h3, h4, h5, h6, p, li {
+      @apply font-chakra;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+    }
+
+    p, li {
+      color: var(--gray-2);
+    }
+
+    a {
+      @apply font-chakra;
+
+      &:focus,
+      &:hover {
+        @apply text-brand-blue;
+        text-decoration-color: var(--brand-blue);
+      }
+    }
+
+    figure {
+      &.wp-caption {
+        @apply mb-20px;
+        color: var(--gray-3);
+      }
+    }
+  }
+}

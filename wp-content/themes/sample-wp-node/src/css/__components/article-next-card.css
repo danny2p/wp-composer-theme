@@ -1,0 +1,133 @@
+.article-next {
+  &-section {
+    @apply px-12px mt-64px flex h-full w-full flex-col items-center justify-center;
+    row-gap: 24px;
+
+    &-title {
+      @apply text-brand-blue text-2 font-chakra !important;
+      width: 100%;
+      height: 100%;
+      max-width: 800px;
+      text-align: center;
+      padding-top: 64px;
+      border-top: 1px solid var(--gray-6);
+
+      @media (min-width: 1440px) {
+        @apply text-4;
+      }
+    }
+  }
+
+  &-card {
+    @apply py-8px px-8px relative h-full w-full;
+
+    @media (min-width: 768px) {
+      max-width: 325px;
+    }
+
+    @media (min-width: 1440px) {
+      max-width: 460px;
+    }
+
+    /* Bordered corners */
+    .corner-top-left,
+    .corner-top-right,
+    .corner-bottom-left,
+    .corner-bottom-right {
+      @apply absolute;
+      transition: all 500ms ease;
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        background-color: var(--sample-wp-node-blue);
+        position: absolute;
+        transition: all 500ms ease;
+      }
+
+      &:before {
+        width: 16px;
+        height: 1px;
+      }
+
+      &:after {
+        width: 1px;
+        height: 16px;
+      }
+    }
+
+    .corner-top-left {
+      top: 0;
+      left: 0;
+
+      &:before,
+      &:after {
+        transform: rotate(0deg);
+      }
+    }
+
+    .corner-top-right {
+      top: 0;
+      right: 0;
+
+      &:before,
+      &:after {
+        transform: rotate(0deg);
+        right: 0;
+      }
+    }
+
+    .corner-bottom-left {
+      bottom: 0px;
+      left: 0;
+
+      &:before,
+      &:after {
+        transform: rotate(0deg);
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    .corner-bottom-right {
+      bottom: 0px;
+      right: 0;
+
+      &:before,
+      &:after {
+        transform: rotate(0deg);
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    /* Reset any sizing from the carousel */
+    .risk-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      clip-path: none !important;
+    }
+  }
+}
+
+[data-theme="light"] {
+  .article-next {
+    &-section {
+      &-title {
+        @apply text-gray-1 font-serif !important;
+      }
+    }
+
+    &-card {
+      .corner-top-left,
+      .corner-top-right,
+      .corner-bottom-left,
+      .corner-bottom-right {
+        display: none;
+      }
+    }
+  }
+}

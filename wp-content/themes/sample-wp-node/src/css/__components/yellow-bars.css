@@ -1,0 +1,164 @@
+.bars {
+    &-container {
+        /* w-1/2 */
+        @apply w-full h-full relative;
+    }
+}
+.bar {
+    &-row {
+        @apply mb-56px relative;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+
+        @media(min-width: 768px){
+            @apply mb-20px;
+            flex-direction: row;
+        }
+    }
+    &-numbered {
+
+        &-block {
+            /* width: auto; */
+            width: fit-content;
+            max-width: 500px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 32px 18px 55px;
+            margin-left: 23px;
+            position: relative;
+
+            &.active {
+                .is-animating {
+                    left: auto;
+                    right: 0;
+                    z-index: 99;
+                    width: 100%;
+                }
+            }
+
+            &::before {
+                content: "";
+                mask-image: url("../assets/left_noodles.svg");
+                mask-repeat: no-repeat;
+                mask-position: left;
+                mask-size: contain;
+                z-index: 10;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 23px;
+                background: var(--page-bg) !important;
+                height: 100px;
+            }
+        }
+
+        &-text {
+            font-variant-numeric: lining-nums;
+            white-space: nowrap;
+        }
+
+        &-overlay {
+            height: 100%;
+            width: 0;
+            background-color: var(--page-bg);
+            transition: all 500ms ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &.is-animating {
+                left: auto;
+                right: 0;
+            }
+        }
+
+    }
+    &-text {
+        @apply mt-16px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(90deg, var(--page-bg) 0%, var(--page-bg) 50%, var(--gray-2) 50%, var(--gray-2) 100%);
+        background-size: 200%;
+        background-position: 0% 0%;
+        opacity: 0;
+        width: 100%;
+        max-height: 72px;
+        position: relative;
+        z-index: 10;
+
+        @media(min-width: 768px){
+            @apply mt-0;
+        }
+        
+        &-block {
+            @apply ml-32px pr-32px relative;
+            width: auto;
+            max-width: 400px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active {
+                .bar-text {
+                    animation: progressbar 1.5s ease 0.5s forwards;
+                }
+                .bar-text-line.is-animating {
+                    animation: linereveal 0.5s ease 0.2s forwards,
+                    lineslide 1.5s ease 0.5s forwards;
+                }
+                .bar-line-fadeout {
+                    animation: linefadeout 0.5s ease forwards !important;
+                }
+            }
+        }
+        &-line {
+            width: 3px;
+            height: 90%;
+            position: absolute;
+            left: -5px; 
+            top: 5%;
+            opacity: 0;
+            z-index: 99;
+        }
+    }
+
+    &-color {
+
+        &-yellow {
+            background-color: var(--data-viz-gold);
+        }
+    }
+
+}
+
+/* Set Keyframes for animations of yellow bar */
+@keyframes lineslide {
+    0%   {left: 0px;}
+    100% {left: 100%;}
+  }
+
+@keyframes linereveal {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes linefadeout {
+    0% { opacity: 1; left:100%; }
+    100% { opacity: 0; left:100%; }
+}
+
+@keyframes progressbar {
+    0% {
+      opacity: 1;
+      background-position: 0 0;
+    }
+    100% {
+      opacity: 1;
+      background-position: -100% 0;
+    }
+}

@@ -1,0 +1,91 @@
+.solutions-blog {
+  &-section {
+    @apply my-120px sm:my-140px md:my-160px;
+
+    &-title {
+      @apply fs-6 bold-raleway text-brand-blue mb-32px md:mb-64px text-animate is-animating-md mx-auto text-center sm:w-1/2 md:w-2/6;
+    }
+  }
+
+  &-post {
+    @apply w-full sm:w-1/4;
+
+    @media (min-width: 350px) {
+      min-width: 350px;
+    }
+    max-width: 560px;
+
+    @media (max-width: 768px) {
+      max-width: 300px;
+    }
+
+    &-wrapper {
+      @apply px-16px mb-200px mx-auto flex flex-wrap justify-center;
+      gap: 60px;
+    }
+
+    .img-wrapper {
+      @apply relative w-full;
+      height: 200px;
+
+      @media (min-width: 1440px) {
+        height: 300px;
+      }
+
+      &-overlay {
+        height: 100%;
+        width: 100%;
+        background-color: var(--page-bg);
+        transition: all 1000ms ease;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 20;
+
+        &.active {
+          width: 0;
+        }
+      }
+
+      img {
+        @apply h-full w-full;
+      }
+    }
+
+    &-btn {
+      @apply absolute;
+      transform: translateY(-50%);
+
+      .btn-solid {
+        -webkit-text-fill-color: initial !important;
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        transition: ease 500ms all;
+
+        &.active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+      }
+
+      .btn-solid {
+        -webkit-text-fill-color: initial !important;
+        background-image: none;
+      }
+    }
+  }
+
+  &-title {
+    cursor: pointer;
+    height: auto;
+
+    @media (min-width: 1440px) {
+      max-height: 28px;
+    }
+
+    &:focus,
+    &:hover {
+      @apply text-brand-blue underline;
+      -webkit-text-fill-color: initial;
+      color: var(--sample-wp-node-blue) !important;
+    }
+  }
+}

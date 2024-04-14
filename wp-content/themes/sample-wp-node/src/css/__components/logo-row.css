@@ -1,0 +1,44 @@
+.logo-row {
+
+  &-section { 
+    @apply w-full h-full px-16px py-24px;
+  }
+
+  &-title {
+    @apply w-fit h-auto mx-auto max-w-[600px];
+    text-align: center;
+  }
+
+  &-wrapper {
+    @apply w-full h-full flex justify-center items-center gap-x-[55px] max-w-[1800px] mx-auto; 
+    flex-wrap: wrap;
+    /* max-height: 175px; */
+    /* sm:gap-x-[60px] md:gap-x-[70px] */ 
+  }
+
+  &-logo {
+    @apply w-auto h-auto block object-contain;
+    max-height: 175px;
+    max-width: 175px;
+
+    @media(max-width: 768px){
+      max-width: 140px;
+    }
+  }
+
+  &-link {
+    @apply w-auto h-auto block relative z-20;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: all 100ms ease;
+
+    &:focus,
+    &:hover {
+        filter: grayscale(0%) !important;
+    }
+  }
+
+  &-button {
+    @apply w-fit h-auto mx-auto; 
+  }
+}

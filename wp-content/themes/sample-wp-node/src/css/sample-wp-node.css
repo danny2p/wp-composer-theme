@@ -1,0 +1,111 @@
+/* ./src/css/PROJECT_NAME.css */
+@import "tailwind.css";
+
+/* ------------------
+ * Elements
+ * ------------------ */
+ @import "./01.elements/text.css";
+
+
+/* ------------------
+ * Components
+ * ------------------ */
+ @import "./02.components/header.css";
+
+/* Font imports for Raleway Bold, Work Sans Semi-Bold, Work Sans Medium, Chakra Petch */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Work+Sans:wght@500;600&family=Chakra+Petch:wght@500&display=swap");
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* 
+ * -------------------------------
+ * Default / Light Theme
+ * -------------------------------
+ */
+:root,
+[data-theme="light"] {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --page-bg: rgba(255, 255, 255, 1);
+  --text-color: rgba(46, 46, 46, 1);
+
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  /* Solid Colors */
+  --sample-wp-node-blue: rgba(0, 118, 169, 1);
+  --sample-wp-node-orange: rgba(234, 147, 26, 1);
+  --data-viz-blue-1: rgba(1, 98, 137, 1);
+  --data-viz-blue-2: rgba(56, 167, 222, 1);
+  --data-viz-blue-3: rgba(81, 192, 238, 1);
+  --data-viz-aqua: rgba(103, 198, 186, 1);
+  --data-viz-teal: rgba(0, 182, 139, 1);
+  --data-viz-green: rgba(104, 190, 90, 1);
+  --data-viz-gold: rgba(245, 196, 21, 1);
+  --data-viz-rust: rgba(211, 120, 39, 1);
+  --data-viz-red: rgba(240, 84, 35, 1);
+
+  /* Grayscale */
+  --gray-1: rgba(46, 46, 46, 1);
+  --gray-2: rgba(78, 78, 78, 1);
+  --gray-3: rgba(110, 110, 110, 1);
+  --gray-4: rgba(142, 142, 142, 1);
+  --gray-5: rgba(174, 174, 174, 1);
+  --gray-6: rgba(206, 206, 206, 1);
+  --gray-7: rgba(238, 238, 238, 1);
+  --gray-8: rgba(244, 244, 244, 1);
+
+  /* Hightlight Color */
+  /* --highlight-color: var(--orange); */
+
+  /* Page Background Color */
+  background-color: var(--page-bg);
+}
+
+/* 
+ * -------------------------------
+ * Dark Theme
+ * -------------------------------
+ */
+[data-theme="dark"] {
+  --page-bg: rgba(30, 30, 30, 1);
+  --text-color: rgba(255, 255, 255, 1);
+
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  /* Solid Colors */
+  --sample-wp-node-blue: rgba(46, 192, 255, 1);
+  --sample-wp-node-orange: rgba(252, 165, 36, 1);
+  --data-viz-blue-1: rgba(0, 70, 98, 1);
+  --data-viz-blue-2: rgba(0, 118, 166, 1);
+  --data-viz-blue-3: rgba(0, 157, 220, 1);
+  --data-viz-aqua: rgba(120, 255, 238, 1);
+  --data-viz-teal: rgba(10, 255, 197, 1);
+  --data-viz-green: rgba(123, 255, 102, 1);
+  --data-viz-gold: rgba(255, 205, 28, 1);
+  --data-viz-rust: rgba(237, 135, 44, 1);
+  --data-viz-red: rgba(255, 109, 63, 1);
+
+  /* Grayscale (inverse of light theme) */
+  --gray-1: rgba(244, 244, 244, 1);
+  --gray-2: rgba(238, 238, 238, 1);
+  --gray-3: rgba(206, 206, 206, 1);
+  --gray-4: rgba(174, 174, 174, 1);
+  --gray-5: rgba(142, 142, 142, 1);
+  --gray-6: rgba(110, 110, 110, 1);
+  --gray-7: rgba(78, 78, 78, 1);
+  --gray-8: rgba(46, 46, 46, 1);
+
+  /* Hightlight Color */
+  /* --highlight-color: var(--orange); */
+
+  /* Page Background Color */
+  background-color: var(--page-bg);
+}

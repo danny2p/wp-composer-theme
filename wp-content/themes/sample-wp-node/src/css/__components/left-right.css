@@ -1,0 +1,21 @@
+.layered-icons-wrapper {
+    @apply relative w-full;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: ease 1000ms all;
+    max-width: 1500px;
+
+    @media(min-width: 1440px){
+      @apply  mt-0;
+    }
+
+    @media(max-width: 1440px){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.active {
+      clip-path: polygon(100% 0, -20% 0, -20% 120%, 100% 120%);
+
+    }
+}

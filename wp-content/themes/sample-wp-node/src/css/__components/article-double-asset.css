@@ -1,0 +1,28 @@
+.article-double {
+
+    &-assets {
+        @apply w-full h-full py-64px;
+    }
+
+    &-container {
+        @apply w-full h-full flex flex-col mx-auto;
+        column-gap: 44px;
+        row-gap: 24px;
+        max-width: 1200px;
+        
+        @media(min-width: 768px){
+            @apply flex-row;
+            max-height: 346px;
+        }
+    }
+
+    &-image {
+        @apply w-full h-auto flex-shrink mx-auto;
+        max-width: 578px;
+        display: inline;
+
+        img {
+            @apply w-full h-full object-cover;
+        }
+    }
+}

@@ -1,0 +1,474 @@
+.bg-gray-noodles {
+  background-image: url("../assets/home-banner-noodles.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.home-banner {
+  &-container {
+    @apply relative flex h-full w-full items-center justify-end;
+    padding-bottom: 82px;
+    padding-top: 52px;
+    padding-left: 20px;
+    z-index: 2;
+    overflow: hidden;
+    /* background-image: url("../assets/home-banner-noodles.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: cover;
+        overflow: hidden; */
+
+    @media (min-width: 768px) {
+      padding-left: 60px;
+    }
+
+    /* @media (min-width: 1921px){
+            width: auto !important;
+        } */
+  }
+
+  &-bar {
+    @apply bg-blue-1 absolute top-0 left-0;
+    width: 0;
+    height: 10px;
+    opacity: 0;
+    z-index: 20;
+
+    &.carousel-bar {
+      opacity: 1;
+      transition: width 5.5s ease;
+      animation: barfade 650ms ease 4.5s forwards;
+      width: 100%;
+    }
+  }
+
+  &-content {
+    top: 0 !important;
+    @media (min-width: 768px) {
+      @apply top-52px !important;
+    }
+  }
+
+  &-text {
+    @apply w-full;
+    max-height: 100px;
+    max-width: 700px;
+    position: relative;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--white) !important;
+    background-size: 400%;
+    background-position: 0% 0%;
+    background-image: linear-gradient(
+      90deg,
+      var(--sample-wp-node-blue) 0%,
+      var(--sample-wp-node-blue) 25%,
+      var(--white) 25%,
+      var(--white) 50%,
+      var(--data-viz-blue-3) 50%,
+      var(--data-viz-blue-3) 100%
+    );
+
+    &-block {
+      @apply bg-brand-blue relative flex h-full flex-col items-start justify-center;
+      padding: 1px;
+      width: 100%;
+      max-width: 95%;
+      max-height: 280px;
+
+      &::after {
+        @apply absolute h-full w-full;
+        bottom: -150px;
+        right: -234px;
+        max-width: 432px;
+        content: "";
+        background-image: url("../assets/banner-blue-s-pattern.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+      }
+
+      @media (max-width: 768px) {
+        .home-banner-text {
+          margin-left: 20px !important;
+          max-width: 325px;
+          /* max-height: 107px; */
+        }
+      }
+
+      @media (max-width: 285px) {
+        .home-banner-text {
+          max-width: 240px;
+          /* max-height: 107px; */
+        }
+      }
+
+      @media (min-width: 768px) {
+        max-width: 90%;
+        max-height: 340px;
+
+        .home-banner-text {
+          max-width: 600px;
+          /* max-height: 195px; */
+          margin-right: 0 !important;
+        }
+
+        &::after {
+          bottom: -187px;
+          right: 0;
+        }
+      }
+
+      @media (min-width: 1056px) {
+        max-width: 1000px;
+
+        .home-banner-text {
+          max-width: 800px;
+          /* max-height: 195px; */
+          margin-right: 0 !important;
+        }
+      }
+
+      @media (min-width: 1701px) {
+        max-width: 851px;
+        max-height: 426px;
+
+        .home-banner-text {
+          max-width: 700px;
+        }
+
+        &::after {
+          bottom: -230px;
+          right: 0;
+          max-width: 432px;
+        }
+      }
+
+      @media (min-width: 2200px) {
+        margin-left: 322px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 387px;
+          background-color: var(--sample-wp-node-blue);
+          height: 426px;
+          left: -386px;
+          top: 0;
+        }
+      }
+      @media (min-width: 2960px) {
+        margin-left: 520px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 528px;
+          background-color: var(--sample-wp-node-blue);
+          height: 426px;
+          left: -520px;
+          top: 0;
+        }
+      }
+
+      &.is-loading {
+        z-index: 1;
+        clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+        transition: ease 1000ms all;
+
+        .home-banner-text {
+          &-block-button {
+            clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+          }
+        }
+      }
+
+      &.is-loaded {
+        z-index: 1;
+        /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important; */
+        clip-path: polygon(0 0, 100% 0%, 100% 110%, 0% 120%) !important;
+
+        @media (min-width: 2200px) {
+          clip-path: polygon(-50% 0%, 100% 0%, 100% 110%, -50% 120%) !important;
+        }
+        @media (min-width: 2960px) {
+          clip-path: polygon(-80% 0%, 100% 0%, 100% 110%, -80% 120%) !important;
+        }
+
+        .home-banner-text {
+          opacity: 1;
+          animation: titlereveal 1s ease 0.5s forwards;
+
+          &.carousel-animate-text {
+            color: var(--white) !important;
+            animation: titlehide 0.8s ease forwards;
+          }
+
+          &-block-button {
+            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
+          }
+        }
+      }
+    }
+
+    &-title {
+      @media (max-width: 768px) {
+        max-height: 106px !important;
+      }
+
+      @media (min-width: 768px) {
+        max-height: 132px !important;
+      }
+
+      @media (min-width: 1440px) {
+        max-height: 195px !important;
+      }
+    }
+    &-descript {
+      @media (max-width: 768px) {
+        max-height: 64px !important;
+      }
+
+      @media (min-width: 768px) {
+        max-height: 64px !important;
+      }
+
+      @media (min-width: 1440px) {
+        max-height: 72px !important;
+      }
+    }
+
+    &-button {
+      @apply relative;
+      bottom: 0;
+      left: 20px;
+      transform: translateY(-50%);
+
+      @media (min-width: 768px) {
+        left: 60px;
+      }
+
+      @media (min-width: 1440px) {
+        left: 60px;
+      }
+      @media (min-width: 2200px) {
+        left: 386px;
+      }
+
+      @media (min-width: 2960px) {
+        left: 584px;
+      }
+      .btn-solid {
+        transition: ease 500ms all;
+      }
+
+      .is-loading {
+        &.btn-solid {
+          clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%);
+        }
+      }
+
+      .is-loaded {
+        &.btn-solid {
+          clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+
+          &.carousel-animate-button {
+            clip-path: polygon(
+              100% 0%,
+              100% 0%,
+              100% 100%,
+              100% 100%
+            ) !important;
+            //clip-path: polygon(0 0, 0% 0%, 0% 100%, 0% 100%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &-asset {
+    @apply bg-blue-1 relative h-full w-full;
+    max-width: 1411px;
+    max-height: 182px;
+    /* clip-path: polygon(20% 0%, 0 0, 0 55%, 0 100%, 76% 100%, 78% 100%, 82% 95%, 86% 87%, 93% 79%, 100% 75%, 100% 0, 47% 0); */
+    clip-path: url("#home-banner-mask");
+    margin-top: 227px;
+
+    @media (min-width: 768px) {
+      max-height: 410px;
+      max-width: 1400px;
+      margin-top: 339px;
+    }
+
+    @media (min-width: 1701px) {
+      max-height: 740px;
+      max-width: 1433px;
+      margin-top: 0;
+    }
+
+    @media (min-width: 2200px) {
+      max-height: 935px;
+      max-width: 1820px;
+      margin-top: 0;
+    }
+
+    &-overlay {
+      height: 100%;
+      transition: all 800ms ease;
+      position: absolute;
+      z-index: 90;
+      top: 0;
+      left: 0;
+
+      &.is-loading {
+        width: 100%;
+        backdrop-filter: blur(5px);
+        left: auto;
+        right: 0;
+      }
+
+      &.is-loaded {
+        width: 0 !important;
+      }
+    }
+
+    &-inner {
+      @apply absolute top-0 left-0 h-full w-full;
+      position: absolute;
+      z-index: 0;
+      opacity: 0;
+      object-fit: cover;
+      transition: clip-path 1.2s ease;
+
+      &.current-asset {
+        z-index: 2;
+        opacity: 1;
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+
+        &.wipe-asset {
+          clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%) !important;
+          /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); */
+        }
+      }
+
+      &.next-asset {
+        opacity: 0;
+        z-index: 1;
+      }
+
+      &.base-asset {
+        position: relative !important;
+        height: auto;
+        width: 100%;
+        opacity: 0;
+        object-fit: cover;
+        z-index: -10;
+      }
+    }
+  }
+
+  &-tracker {
+    &-container {
+      @apply absolute flex h-full justify-start;
+      right: 1303px;
+      bottom: 26px;
+      max-height: 44px;
+      min-width: 500px;
+      left: 20px;
+      right: auto;
+      /* max-width: 1280px; */
+
+      @media (min-width: 768px) {
+        left: 60px;
+        right: auto;
+      }
+
+      @media (min-width: 1440px) {
+        /* right: 933px;
+                left: auto; */
+        right: auto;
+        left: 60px;
+      }
+
+      @media (min-width: 1465px) {
+        right: 900px;
+        left: auto;
+      }
+
+      @media (min-width: 1701px) {  
+        right: 933px;
+        left: auto;
+      }
+
+      @media (min-width: 2200px) {
+        right: 1320px;
+        left: auto;
+      }
+    }
+
+    &-single {
+      @apply bg-brand-blue mr-24px;
+      width: 12px;
+      height: 12px;
+      transition: height 150ms ease, background-color 150ms ease;
+      cursor: pointer;
+
+      &.active-item {
+        height: 44px;
+      }
+
+      &:hover {
+        background-color: var(--sample-wp-node-orange);
+      }
+
+      &:focus {
+        @media (max-width: 1440px) {
+          outline: none;
+        }
+      }
+    }
+
+    &-hidden {
+      opacity: 0 !important;
+      visibility: hidden;
+    }
+  }
+}
+
+@keyframes titlereveal {
+  0% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+  100% {
+    opacity: 1;
+    background-position: -100% 0;
+  }
+}
+
+@keyframes titlehide {
+  0% {
+    opacity: 1;
+    background-position: -100% 0;
+  }
+  100% {
+    opacity: 1;
+    background-position: -133% 0;
+  }
+}
+
+@keyframes barfade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

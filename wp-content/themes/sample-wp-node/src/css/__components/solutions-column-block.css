@@ -1,0 +1,45 @@
+.column-block {
+  max-width: 300px;
+  &-section {
+    @apply px-16px sm:px-64px my-200px mx-auto;
+    max-width: 1800px;
+
+    &-title {
+      @apply fs-6 bold-raleway text-brand-blue mb-88px text-animate is-animating-md mx-auto w-2/3  text-center sm:w-1/2 md:w-2/6;
+    }
+  }
+  &-wrapper {
+    @apply mx-auto flex flex-wrap justify-center md:flex-nowrap;
+
+    @media (min-width: 768px) {
+      gap: 25px !important;
+    }
+    gap: 50px;
+  }
+
+  .img-wrapper {
+    @apply flex justify-center self-center;
+    height: 200px;
+    max-width: 300px;
+
+    img {
+      @apply h-full w-full;
+      object-fit: contain !important;
+    }
+
+    &-overlay {
+      height: 100%;
+      width: 100%;
+      background-color: var(--page-bg);
+      transition: all 1000ms ease;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 20;
+
+      &.active {
+        width: 0;
+      }
+    }
+  }
+}

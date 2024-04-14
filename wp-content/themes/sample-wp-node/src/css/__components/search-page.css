@@ -1,0 +1,110 @@
+/* Search Box = Search page  */
+
+.search-container {
+  @apply px-16px mx-auto w-full;
+  max-width: 1800px;
+
+  /* @media (max-width: 1860px) {
+    @apply px-40px;
+  } */
+
+  @media (max-width: 960px) {
+    @apply px-0;
+  }
+}
+
+.search-box {
+  @apply bg-gray-8 pr-64px w-full;
+  color: var(--gray-5);
+  padding-top: 1px;
+  max-width: 900px;
+  min-height: 192px;
+  position: relative;
+
+  @media (max-width: 960px) {
+    @apply px-16px;
+  }
+
+  &:before {
+    @apply bg-gray-8;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .search-page-title {
+    @apply text-gray-3 mt-36px mb-16px fs-0 medium-work-sans uppercase;
+    letter-spacing: 2px;
+  }
+
+  .search-page-bar {
+    @apply bg-gray-8 fs-4 regular-work-sans pb-4px w-full;
+    border-radius: unset;
+    appearance: none;
+    color: var(--sample-wp-node-blue);
+    border-bottom: 1px solid var(--gray-5);
+
+    &::placeholder {
+      color: var(--sample-wp-node-blue);
+    }
+  }
+
+  .search-page-submit {
+    @apply bg-gray-1 h-24px w-24px right-4px absolute cursor-pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    mask-image: url("../assets/magnifyglass.svg");
+    mask-repeat: no-repeat;
+    mask-position: left;
+    mask-size: contain;
+  }
+
+  .search-page-clear {
+    @apply text-gray-3 mt-20px fs--2 medium-work-sans uppercase;
+    letter-spacing: 3px;
+  }
+}
+
+.no-results-title {
+  @apply my-36px fs-4 text-gray-1;
+}
+
+.search-result-item {
+  @apply py-16px block;
+  border-bottom: 1px solid #c4c4c4;
+  max-width: 900px;
+
+  &:first-of-type {
+    @apply pt-0;
+  }
+
+  .item-title {
+    @apply fs-2 text-gray-1 mb-16px;
+    transition: all 150ms ease;
+
+    &:focus,
+    &:hover {
+      @apply text-brand-blue underline;
+    }
+  }
+
+  .item-subtitle {
+    @apply fs-0 text-gray-3 capitalize;
+  }
+
+  .item-description {
+    @apply fs-0 text-gray-2 mt-16px;
+  }
+}
+
+.search-content-wrapper {
+  @apply py-32px;
+
+  @media (max-width: 960px) {
+    @apply px-16px;
+  }
+}

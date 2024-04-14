@@ -1,0 +1,25 @@
+{
+  "name": "hounder/wordpress",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "pantheon-se/node-composer": "*"
+  },
+  "extra": {
+    "pantheon-se": {
+      "node-composer": {
+        "node-version": true
+      }
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "pantheon-se/node-composer": true
+    }
+  },
+  "scripts": {
+    "post-install-cmd": ["@build"],
+    "post-update-cmd": ["@build"],
+    "build": "npm run install-theme"
+  }
+}

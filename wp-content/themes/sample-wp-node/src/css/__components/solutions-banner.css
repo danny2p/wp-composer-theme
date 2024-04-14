@@ -1,0 +1,314 @@
+.solutions-banner {
+    &-container {
+    }
+  
+    &-text {
+      @apply ml-16px sm:ml-40px md:ml-52px pt-16px sm:pt-40px;
+      position: absolute;
+      color: var(--white) !important;
+  
+      .solutions-banner-supertitle {
+        @apply fs-0 regular-work-sans uppercase;
+        letter-spacing: 2px;
+      }
+    }
+  
+    &-asset {
+      @apply py-32px mx-auto md:py-0;
+  
+      img {
+        @apply mx-auto;
+        @media (min-width: 1440px) {
+          max-width: 1200px !important;
+          max-height: 875px !important;
+        }
+      }
+  
+      &-wrapper {
+        @apply relative;
+        width: calc(100% - 16px);
+        max-height: 900px;
+        height: auto;
+        /* background-color: var(--data-viz-blue-2); */
+        -webkit-text-fill-color: initial !important;
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        transition: ease 600ms all;
+  
+        &.active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+  
+        @media (min-width: 768px) {
+          max-width: 90%;
+        }
+
+        @media (max-width: 281px){
+          min-height: 300px !important;
+        }
+      }
+    }
+  
+    &-cta {
+      @apply pl-16px sm:pl-44px h-full;
+      height: auto;
+      right: 0;
+      color: var(--white);
+      background-color: var(--sample-wp-node-blue);
+      clip-path: url("#solutionsBannerMask");
+  
+      &.active {
+        @apply z-30;
+      }
+  
+      @media (max-width: 768px) {
+        max-height: 350px;
+      }
+  
+      .banner-text {
+        @apply pr-16px pt-52px relative;
+        min-width: 200px;
+        max-width: 600px;
+        height: 100%;
+        padding-bottom: 64px;
+
+        &-title {
+          overflow: hidden;
+          max-height:54px; 
+
+          @media(min-width: 768px){
+            max-height:54px; 
+          }
+
+          @media(min-width: 1440px){
+            max-height:64px;
+          }
+        }
+
+        &-body {
+          overflow: hidden;
+          max-height:94px; 
+
+          @media(min-width: 768px){
+            max-height:94px; 
+          }
+
+          @media(min-width: 1440px){
+            max-height:118px;
+          }
+        }
+      }
+  
+      &-wrapper {
+        width: calc(100% - 16px);
+        @apply right-0 z-50 ml-auto sm:w-2/3 md:w-1/2;
+        height: auto;
+        /* transform: translateY(-25%); */
+        -webkit-transform: translateY(-25%) translateZ(0);
+        -moz-transform: translateY(-25%) translateZ(0);
+        -ms-transform: translateY(-25%) translateZ(0);
+        -o-transform: translateY(-25%) translateZ(0);
+        transform: translateY(-25%) translateZ(0);
+
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        transition: ease 1000ms all;
+        max-width: 960px;
+        position: relative;
+
+        @media (max-width: 435px){
+          -webkit-transform: translateY(-2%) translateZ(0);
+          -moz-transform: translateY(-2%) translateZ(0);
+          -ms-transform: translateY(-2%) translateZ(0);
+          -o-transform: translateY(-2%) translateZ(0);
+          transform: translateY(-2%) translateZ(0);
+        }
+
+        @media (max-width: 345px){
+          -webkit-transform: translateY(0%) translateZ(0);
+          -moz-transform: translateY(0%) translateZ(0);
+          -ms-transform: translateY(0%) translateZ(0);
+          -o-transform: translateY(0%) translateZ(0);
+          transform: translateY(0%) translateZ(0);
+        }
+  
+        @media (min-width: 1440px) {
+          /* transform: translateY(-45%); */
+          -webkit-transform: translateY(-45%) translateZ(0);
+          -moz-transform: translateY(-45%) translateZ(0);
+          -ms-transform: translateY(-45%) translateZ(0);
+          -o-transform: translateY(-45%) translateZ(0);
+          transform: translateY(-45%) translateZ(0);
+        }
+  
+        &.active {
+          clip-path: polygon(0 -12%, 150% -190%, 150% 150%, 0% 150%);
+          
+        }
+  
+        .banner-noodles {
+          &::before {
+            content: "";
+            mask-image: url("../assets/s-banner-noodles.svg");
+            mask-repeat: no-repeat;
+            mask-position: left;
+            mask-size: cover;
+            z-index: 30;
+            position: absolute;
+            right: 0;
+            top: -37px;
+            width: 300px;
+            background: var(--sample-wp-node-blue) !important;
+            height: 47px;
+          }
+        }
+  
+        .cta-overlay {
+          height: 120%;
+          width: 100%;
+          background-color: var(--page-bg);
+          transition: all 500ms ease;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 20;
+  
+          &.active {
+            width: 0;
+          }
+        }
+  
+        .banner-btn {
+          @apply absolute z-50;
+          left: 40px;
+          bottom: -25px;
+        }
+      }
+    }
+  }
+
+  /* 
+.solutions-banner {
+    &-container {
+    }
+  
+    &-text {
+      @apply ml-16px sm:ml-40px md:ml-52px pt-16px sm:pt-40px;
+      position: absolute;
+      color: var(--white);
+  
+      .solutions-banner-supertitle {
+        @apply fs-1 regular-work-sans uppercase;
+        letter-spacing: 2px;
+      }
+    }
+  
+    &-asset {
+      @apply py-32px mx-auto md:py-0;
+  
+      img {
+        @apply mx-auto;
+        @media (min-width: 1440px) {
+          max-width: 1200px !important;
+          max-height: 875px !important;
+        }
+      }
+  
+      &-wrapper {
+        @apply relative;
+        width: calc(100% - 16px);
+        max-height: 900px;
+        height: auto;
+        background-color: var(--data-viz-blue-2);
+        -webkit-text-fill-color: initial !important;
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        transition: ease 600ms all;
+  
+        &.active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+  
+        @media (min-width: 768px) {
+          max-width: 90%;
+        }
+      }
+    }
+  
+    &-cta {
+      @apply pl-16px sm:pl-44px h-full;
+      height: 300px;
+      right: 0;
+      color: var(--white);
+      background-color: var(--sample-wp-node-blue);
+      clip-path: url("#solutionsBannerMask");
+  
+      &.active {
+        @apply z-30;
+      }
+  
+      @media (max-width: 768px) {
+        max-height: 350px;
+      }
+  
+      .banner-text {
+        @apply pr-16px pt-52px relative;
+        min-width: 200px;
+        max-width: 600px;
+      }
+  
+      &-wrapper {
+        width: calc(100% - 16px);
+        @apply right-0 z-50 ml-auto sm:w-2/3 md:w-1/2;
+        height: auto;
+        transform: translateY(-25%);
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        transition: ease 1000ms all;
+  
+        @media (min-width: 1440px) {
+          transform: translateY(-45%);
+        }
+  
+        &.active {
+          clip-path: polygon(0 0, 150% -100%, 150% 150%, 0% 150%);
+        }
+  
+        .banner-noodles {
+          &::before {
+            content: "";
+            mask-image: url("../assets/s-banner-noodles.svg");
+            mask-repeat: no-repeat;
+            mask-position: left;
+            mask-size: contain;
+            z-index: 30;
+            position: absolute;
+            right: 0;
+            top: -37px;
+            width: 300px;
+            background: var(--sample-wp-node-blue) !important;
+            height: 47px;
+          }
+        }
+  
+        .cta-overlay {
+          height: 120%;
+          width: 100%;
+          background-color: var(--page-bg);
+          transition: all 500ms ease;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 20;
+  
+          &.active {
+            width: 0;
+          }
+        }
+  
+        .banner-btn {
+          @apply absolute z-40;
+          left: 40px;
+          bottom: -25px;
+        }
+      }
+    }
+  }
+  
+  */

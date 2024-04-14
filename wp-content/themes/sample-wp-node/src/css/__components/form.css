@@ -1,0 +1,438 @@
+.marketo-form {
+  &-section {
+    @apply sm:px-40px;
+    max-width: 1800px;
+
+    .marketo-form-load {
+      .mktoForm {
+        display: flex;
+        flex-direction: column;
+
+        .mktoFormRow {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          order: 2;
+
+          .mktoFieldDescriptor.mktoFormCol.hasCheckboxList {
+            padding-left: 24px;
+            width: auto !important;
+          }
+        }
+
+        .mktoButtonRow {
+          position: absolute !important;
+          bottom: 0;
+
+          .mktoButtonWrap {
+            /* position: absolute !important; */
+          }
+
+          .mktoButton {
+            width: 50% !important;
+            position: absolute !important;
+            max-width: 275px;
+            /* left: 50% !important; */
+          }
+
+          .mktoButton {
+            left: initial;
+            transform: translate(-63%, -50%);
+          }
+        }
+
+        .mktoFieldWrap {
+          .mktoCheckboxList {
+            width: 36px !important;
+          }
+        }
+      }
+    }
+  }
+
+  &-wrapper {
+    @apply bg-brand-blue relative flex w-full flex-wrap items-center justify-center;
+    min-height: 710px;
+    padding: 0 120px;
+
+    @media (max-width: 860px) {
+      padding: 0 24px;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 0 88px;
+    }
+
+    &::before {
+      mask-image: url("../assets/marketo-bottom-s-pattern.svg");
+      background-color: var(--sample-wp-node-blue);
+      content: "";
+      height: 180px;
+      width: 100%;
+      /* width: 260px; */
+      position: absolute;
+      bottom: -28px;
+      right: 0;
+
+      @media (min-width: 860px) {
+        width: 100%;
+        display: none;
+      }
+
+      @media (min-width: 1440px) {
+        width: 260px;
+        display: block;
+        mask-size: auto;
+      }
+    }
+  }
+
+  &-noodles {
+    position: absolute;
+    mask-image: url("../assets/form-blue-noodles.svg");
+    -webkit-mask-repeat: no-repeat;
+    background-color: var(--sample-wp-node-blue);
+    height: 185px;
+    width: 262px;
+    top: -96px;
+    left: -20px;
+    z-index: 0;
+
+    @media (max-width: 1440px) {
+      top: auto;
+      bottom: -96px;
+      width: 50%;
+    }
+
+    @media (max-width: 860px) {
+      display: none;
+    }
+
+    @media (min-width: 1440px) {
+      right: -254px !important;
+    }
+  }
+
+  &-load {
+    @apply -top-72px relative h-full bg-white;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    /* margin: 0 24px; */
+    margin: 0 auto;
+    min-height: 740px;
+    position: relative;
+    /* width: calc(100% - 48px); */
+
+    @media (max-width: 1440px) {
+      @apply -bottom-72px top-auto;
+    }
+
+    @media (min-width: 1440px) {
+      margin-left: auto !important;
+    }
+
+    @media (max-width: 860px) {
+      @apply top-auto bottom-auto;
+      margin-bottom: 72px;
+    }
+
+    .mktoForm {
+      padding: 48px 42px;
+      width: 100% !important;
+
+      fieldset {
+        border: none !important;
+      }
+
+      .mktoFormRow {
+        &:first-of-type {
+          label {
+            margin-top: 0;
+          }
+        }
+
+        .mktoClear {
+          display: none;
+        }
+
+        .mktoFormRow {
+          @apply mb-24px flex;
+          justify-content: center;
+          align-items: center;
+
+          .mktoFormCol {
+            &.hasCheckboxList {
+              width: auto !important;
+
+              .mktoFieldWrap {
+                flex-direction: row-reverse;
+              }
+              /* .mktoFieldWrap label {
+                display: none;
+              } */
+            }
+          }
+        }
+      }
+
+      [name*="Subscribe_to"],
+      [name*="Subscribed_for"],
+      [name="Unsubscribed"],
+      [name="formConsent"],
+      [name*="Email_Opt"] {
+        &[type="checkbox"] {
+          cursor: pointer;
+          /* Add if not using autoprefixer */
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: var(--white);
+          margin: 0;
+
+          font-size: 24px;
+          color: currentColor;
+          width: 24px !important;
+          height: 24px;
+          border: 1px solid var(--gray-4);
+          border-radius: 0;
+          /* transform: translateY(-0.075em); */
+
+          display: grid;
+          place-content: center;
+
+          &::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            clip-path: polygon(
+              14% 44%,
+              0 65%,
+              50% 100%,
+              100% 16%,
+              80% 0%,
+              43% 62%
+            );
+            transform-origin: bottom left;
+            transition: 120ms opacity ease;
+            box-shadow: inset 1em 1em var(--sample-wp-node-blue);
+            /* Windows High Contrast Mode */
+            background-color: CanvasText;
+            opacity: 0;
+          }
+
+          &:checked::before {
+            opacity: 1;
+          }
+
+          &:focus {
+            /* outline: max(2px, 0.15em) solid currentColor; */
+            /* outline-offset: max(2px, 0.15em); */
+          }
+
+          &:disabled {
+            color: var(--gray-4);
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      #LblformConsent {
+        @apply ml-24px fs-1 pt-0;
+      }
+
+      .mktoFieldDescriptor {
+        width: 100% !important;
+      }
+
+      .mktoFieldWrap {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+
+        label {
+          @apply fs-0 regular-work-sans mb-8px !important;
+          font-weight: 400 !important;
+          margin-top: 11px;
+          width: 100% !important;
+
+          strong {
+            font-weight: 400;
+          }
+
+          a {
+            @apply text-brand-blue font-sans !important;
+            text-decoration: underline;
+            text-decoration-color: var(--sample-wp-node-blue);
+
+            &:focus,
+            &:hover {
+              @apply text-brand-orange !important;
+              text-decoration-color: var(--sample-wp-node-orange);
+            }
+          }
+        }
+
+        input {
+          @apply fs-1 regular-work-sans;
+          border: 1px solid var(--gray-4);
+          background-color: var(--page-bg);
+          box-shadow: none;
+          padding: 0.9rem;
+          width: 100% !important;
+          height: 50px;
+          -webkit-appearance: none;
+          appearance: none;
+          border-radius: initial;
+        }
+
+        select {
+          @apply fs-1 regular-work-sans;
+          height: 50px;
+          border: 1px solid var(--gray-4);
+          background-color: var(--page-bg) !important;
+          box-shadow: none;
+          padding: 0.9rem;
+          width: 100% !important;
+          appearance: none;
+          -webkit-appearance: none;
+          background: url("../assets/carrotdown.svg");
+          background-position: calc(100% - 0.9rem) 50%;
+          background-repeat: no-repeat;
+          -webkit-appearance: none;
+          appearance: none;
+          border-radius: initial;
+        }
+
+        .mktoHtmlText {
+          @apply fs-1 pl-0;
+          font-weight: 400;
+          width: 100% !important;
+
+          a {
+            color: var(--sample-wp-node-blue) !important;
+            text-decoration: underline !important;
+
+            &:hover,
+            &:focus {
+              color: var(--sample-wp-node-orange) !important;
+              text-decoration-color: var(--sample-wp-node-orange) !important;
+            }
+          }
+        }
+
+        textarea {
+          @apply fs-1 regular-work-sans;
+          height: 50px;
+          border: 1px solid var(--gray-4);
+          padding: 0.9rem;
+          border-radius: 0;
+        }
+      }
+
+      .mktoButtonRow {
+        @apply w-full;
+        height: 0;
+
+        .mktoButtonWrap {
+          box-shadow: none;
+          display: block;
+          margin: 0 !important;
+          text-align: center;
+          position: relative;
+          height: 0;
+        }
+
+        .mktoButton {
+          @apply text-2 md:text-4 medium-work-sans !important;
+          border: none !important;
+          background: var(--sample-wp-node-orange) !important;
+          box-shadow: none !important;
+          color: var(--black);
+          padding: 16px 48px;
+          position: absolute;
+
+          display: inline-block;
+          box-sizing: border-box;
+          /* position: relative; */
+          overflow: hidden;
+          border-radius: 0px 0px 0px 0px;
+          transition: all 500ms ease;
+
+          &::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            inset: 0 0 0 0;
+            background: var(--data-viz-blue-2);
+            z-index: 1;
+            transition: transform 500ms ease;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+          }
+
+          &:focus,
+          &:hover {
+            border-radius: 0px 0px 20px 0px;
+          }
+
+          &:focus::before,
+          &:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+        }
+      }
+
+      .mktoOffset {
+        display: none;
+      }
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .marketo-form-load {
+    background-color: var(--page-bg);
+
+    .mktoForm {
+      .mktoFieldWrap {
+        @apply text-gray-2 !important;
+        background-color: var(--page-bg);
+
+        input {
+          background-color: var(--page-bg) !important;
+        }
+        select {
+          background-color: var(--page-bg) !important ;
+          color: var(--gray-2);
+          background: url("../assets/carrotdown-dark.svg");
+          background-position: calc(100% - 0.9rem) 50%;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  .marketo-text {
+    color: rgba(30, 30, 30, 1) !important;
+  }
+}
+
+/* Fixing flex on the container checkbox with text */
+[data-wrapper-for*="Email_Opt"],
+[data-wrapper-for*="Subscribe_to"] {
+  .mktoFieldWrap.mktoRequiredField {
+    flex-direction: row-reverse !important;
+    gap: 12px !important;
+  }
+}
+
+
+[data-wrapper-for*="formConsent"] {
+  .mktoFieldWrap.mktoRequiredField {
+    flex-direction: row-reverse !important;
+  }
+}

@@ -1,0 +1,143 @@
+.contact-section {
+  overflow-x: hidden;
+
+  .contact-title-wrapper {
+    @apply px-16px sm:px-40px pt-40px sm:pt-56px md:pt-88px pb-32px;
+
+    @media (min-width: 1440px) {
+      @apply px-0;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    .contact-supertitle {
+      @apply text-gray-3 fs-0 font-sans font-semibold uppercase;
+      letter-spacing: 2px;
+    }
+    .contact-title {
+      @apply fs-9 bold-raleway text-gray-1;
+    }
+  }
+
+  .contact-info {
+    &-wrapper {
+      @apply bg-brand-blue px-16px sm:px-40px pt-32px relative text-white;
+
+      @media (min-width: 768px) {
+        clip-path: url("#page-contact-image-mask");
+        padding-bottom: 680px;
+        max-height: 1200px;
+        margin-bottom: 800px;
+        /* will need to swap if we change form */
+      }
+
+      @media (min-width: 1440px) {
+        margin-bottom: 200px;
+        /* margin-bottom: 300px; */
+        /* will need to swap if we change form */
+      }
+
+      img {
+        @apply w-64px mr-24px;
+        height: 65px;
+      }
+
+      .top-contact {
+        @apply flex;
+
+        @media (min-width: 1440px) {
+          max-width: 1500px;
+          margin: auto;
+        }
+      }
+      .contact-info-container {
+        max-width: calc(1800px - 45%);
+        margin: auto;
+
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+        transition: all 600ms ease;
+
+        &.active {
+          clip-path: polygon(0% 0%, 100% 0%, 100% 105%, 0% 105%);
+        }
+      }
+    }
+
+    &-description {
+      @apply fs-3 pb-64px font-sans font-medium text-white;
+      @media (min-width: 768px) {
+        max-width: 440px;
+      }
+    }
+
+    &-row {
+      @apply my-24px sm:flex;
+
+      &-link {
+        @apply fs-2 cursor-pointer font-sans font-medium text-white underline;
+      }
+
+      &-text {
+        @apply whitespace-normal max-w-[55%];
+      }
+
+    }
+    &-cta {
+      @apply pb-64px;
+      @media (min-width: 768px) {
+        max-width: 440px;
+      }
+      @media (min-width: 1440px) {
+        max-width: 1500px;
+        margin: auto;
+      }
+      .contact-hr {
+        @apply my-32px;
+        max-width: 440px;
+        color: var(--data-viz-blue-1);
+      }
+    }
+  }
+  .marketo-form-section {
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    clip-path: polygon(100% -10%, 100% -10%, 100% 100%, 100% 100%);
+    transition: all 600ms ease;
+
+    &.active {
+      clip-path: polygon(105% -10%, 0% -10%, -5% 115%, 100% 115%);
+    }
+
+    .marketo-form-noodles {
+      background-image: url("../assets/s-pattern-repeat-blue_blue.svg");
+      width: 390px;
+      height: 241px;
+      left: -15px;
+      bottom: -99px;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media (min-width: 1440px) {
+        right: 1px;
+        left: auto;
+        width: 84%;
+      }
+    }
+    @media (min-width: 768px) {
+      max-width: 625px;
+    }
+    @media (min-width: 1440px) {
+      right: -245px;
+      left: auto;
+      top: 13%;
+    }
+  }
+
+  .contact-container {
+    @apply relative h-full;
+    @media (min-width: 1440px) {
+      width: 71%;
+    }
+  }
+}

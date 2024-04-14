@@ -1,0 +1,149 @@
+.tool-pagination {
+  @apply my-88px sm:my-200px medium-work-sans fs-0 mx-auto flex items-center justify-center;
+
+  .prev,
+  .next {
+    @apply h-44px w-44px mx-16px relative box-border;
+    box-shadow: inset 0px 0px 0px;
+    border: 1px solid var(--sample-wp-node-blue);
+
+    &:after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      mask-image: url("../assets/prevarrow.svg");
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      top: 50%;
+      z-index: 10;
+      transform: translate(12px, -50%);
+      background-color: var(--sample-wp-node-blue);
+    }
+
+    &:focus,
+    &:hover {
+      /* border: 3px solid var(--sample-wp-node-blue); */
+      box-shadow: inset 0px 0px 0px 1px var(--sample-wp-node-blue);
+    }
+  }
+
+  .next {
+    &:after {
+      mask-image: url("../assets/nextarrow.svg");
+      transform: translate(5px, -50%);
+    }
+  }
+
+  .page-number {
+    @apply text-gray-3 px-8px mx-8px pb-12px;
+
+    &:focus {
+      @apply text-brand-blue;
+      border-bottom: 2px solid var(--sample-wp-node-blue);
+    }
+
+    &:hover {
+      border-bottom: 2px solid var(--sample-wp-node-orange);
+    }
+  }
+}
+
+.pagination {
+  @apply my-88px medium-work-sans fs-0 mx-auto flex items-center justify-start;
+
+  .prev,
+  .next {
+    a,
+    button {
+      @apply h-24px w-24px sm:h-44px sm:w-44px mx-16px relative box-border;
+      box-shadow: inset 0px 0px 0px;
+      border: 1px solid var(--sample-wp-node-blue);
+      cursor: pointer;
+      display: block;
+
+      &:after {
+        @apply w-12px sm:w-24px h-12px sm:h-24px;
+        content: "";
+        position: absolute;
+        mask-image: url("../assets/prevarrow.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        top: 50%;
+        left: 0;
+        z-index: 10;
+        transform: translate(7px, -50%);
+        background-color: var(--sample-wp-node-blue);
+
+        @media (min-width: 768px) {
+          transform: translate(12px, -50%);
+        }
+      }
+
+      &:focus,
+      &:hover {
+        /* border: 3px solid var(--sample-wp-node-blue); */
+        box-shadow: inset 0px 0px 0px 1px var(--sample-wp-node-blue);
+      }
+    }
+  }
+
+  .prev {
+    a,
+    button {
+      @apply ml-0;
+    }
+  }
+
+  .next {
+    a,
+    button {
+      @apply mr-0;
+
+      &:after {
+        mask-image: url("../assets/nextarrow.svg");
+        transform: translate(4px, -50%);
+      }
+    }
+  }
+
+  .page-number {
+    @apply fs--1 text-gray-3 px-8px sm:mx-8px pb-[10px];
+
+    &:focus,
+    &:hover {
+      @apply text-brand-blue;
+      border-bottom: 2px solid var(--sample-wp-node-blue);
+    }
+
+    /* &:hover {
+      border-bottom: 2px solid var(--sample-wp-node-orange);
+    } */
+  }
+
+  .disabled {
+    a,
+    button {
+      cursor: initial;
+      opacity: 0.3;
+      border: 1px solid var(--sample-wp-node-blue);
+
+      &:after {
+        background-color: var(--sample-wp-node-blue);
+      }
+
+      &:focus,
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+
+  span.current {
+    color: var(--sample-wp-node-blue);
+    border-bottom: 2px solid var(--sample-wp-node-blue);
+    font-weight: 600;
+  }
+}

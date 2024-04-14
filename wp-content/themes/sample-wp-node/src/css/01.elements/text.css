@@ -1,0 +1,156 @@
+/* Theme Color Changes */
+[data-theme="light"] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: var(--text-color);
+  }
+}
+
+[data-theme="dark"] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: var(--text-color);
+  }
+}
+
+/* Font Sizing - Custom Classes */
+.fs {
+  &--2 {
+    @apply -text-3 md:-text-2;
+  }
+
+  &--1 {
+    @apply -text-2 md:-text-1;
+  }
+
+  &-0 {
+    @apply -text-1 md:text-0;
+  }
+
+  &-1 {
+    @apply text-0 md:text-1;
+  }
+
+  &-2 {
+    @apply text-1 md:text-2;
+  }
+
+  &-3 {
+    @apply text-2 md:text-4;
+  }
+
+  &-4 {
+    @apply text-3 sm:text-4 md:text-6;
+  }
+
+  &-5 {
+    @apply text-4 sm:text-5 md:text-8;
+  }
+
+  &-6 {
+    @apply text-5 sm:text-7 md:text-11;
+  }
+
+  &-7 {
+    @apply text-6 sm:text-9 md:text-13;
+  }
+
+  &-8 {
+    @apply text-8 sm:text-11 md:text-14;
+  }
+
+  &-9 {
+    @apply text-10 sm:text-13 md:text-15;
+  }
+
+  &-10 {
+    @apply text-11 sm:text-14 md:text-16;
+  }
+
+  &-11 {
+    @apply text-12 sm:text-15 md:text-17;
+  }
+}
+
+/* ---------------------
+  * Raleway 
+  * --------------------- */
+.bold-raleway {
+  @apply font-serif font-bold;
+}
+
+/* ---------------------
+  * Work Sans 
+  * --------------------- */
+.semibold-work-sans {
+  @apply font-sans font-semibold uppercase;
+
+  &.fs {
+    /* fs--2 to fs-1  =  3px */
+    &--2,
+    &--1,
+    &-0,
+    &-1 {
+      letter-spacing: 3px;
+    }
+
+    /* fs-2 to fs-6  =  5px */
+    &-2,
+    &-3 &-4 &-5 &-6 {
+      letter-spacing: 5px;
+    }
+
+    /* fs-7 to fs-11  =  7px */
+    &-7,
+    &-8,
+    &-9,
+    &-10,
+    &-11 {
+      letter-spacing: 6px;
+    }
+  }
+}
+
+/* .font-bold.font-serif */
+.bold-raleway {
+  @apply font-bold font-serif;
+}
+
+/* .font-sans.font-medium */
+.medium-work-sans {
+  @apply font-sans font-medium;
+}
+
+/* .font-sans.font-regular */
+.regular-work-sans {
+  @apply font-sans font-normal;
+}
+
+/* ---------------------
+  * Links
+  * --------------------- */
+p {
+  a {
+    color: var(--sample-wp-node-blue);
+    -webkit-text-fill-color: var(--sample-wp-node-blue);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--sample-wp-node-orange);
+      -webkit-text-fill-color: var(--sample-wp-node-orange);
+      text-decoration-color: var(--sample-wp-node-orange);
+    }
+  }
+}
