@@ -20,6 +20,6 @@
   "scripts": {
     "post-install-cmd": ["@build"],
     "post-update-cmd": ["@build"],
-    "build": "npm run install-theme"
+    "build": "npm run install-theme && npm run prod"
   }
 }
