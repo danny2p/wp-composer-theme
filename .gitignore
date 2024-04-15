@@ -1,6 +1,5 @@
 # Composer/Node #
 ############
-composer.lock
 wp-content/themes/sample-wp-node/node_modules/
 wp-content/themes/sample-wp-node/node_modules/dist/
 package-lock.json
